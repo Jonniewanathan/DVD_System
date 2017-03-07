@@ -76,6 +76,7 @@ namespace DVDRentalsSystem
             Boolean chars = false;
             Boolean fullStops = false;
             Boolean at = false;
+            Boolean com = false;
 
             Char[] ch = new Char[text.Length];
 
@@ -100,7 +101,15 @@ namespace DVDRentalsSystem
                         }
                         if (chars && fullStops && at)
                         {
-                            return true;
+                            if (Char.IsLetter(ch[i]) || Char.IsDigit(ch[i]))
+                            {
+                                com = true;
+                            }
+                            if(chars && fullStops && at && com)
+                            {
+                                return true;
+                            }
+                            
                         }
                     }
                 }
