@@ -101,7 +101,7 @@ namespace DVDRentalsSystem
                         }
                         if (chars && fullStops && at)
                         {
-                            if (Char.IsLetter(ch[i]) || Char.IsDigit(ch[i]))
+                            if (Char.IsLetter(ch[i]))
                             {
                                 com = true;
                             }

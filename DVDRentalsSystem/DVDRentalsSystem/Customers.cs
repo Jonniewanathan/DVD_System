@@ -27,6 +27,7 @@ namespace DVDRentalsSystem
         private string status;
         private int countyId;
         private int countryId;
+        private int titleId;
 
         public Customers()
         {
@@ -76,7 +77,7 @@ namespace DVDRentalsSystem
 
             //Define SQL Query to INSERT stock record
             string strSQL = "INSERT INTO Customer VALUES(" + getCustomerId() + ",'" + 
-                getTitle() + "', '" +  getForename() + "', '" + getSurname() + "', '" + 
+                getTitleId() + "', '" +  getForename() + "', '" + getSurname() + "', '" + 
                 getDob() + "', '" + getAddress1() + "', '" + getAddress2() + "', '" + getTown() + "', '" + getCountyId() + "', '" + getCountryId() + "', '" + getEmail() + "', '" + getPhoneNo() + "', '" + getStatus() + "')";
 
             //Execute the Command
@@ -258,6 +259,16 @@ namespace DVDRentalsSystem
         public void setTitle(string title)
         {
             this.title = title;
+        }
+
+        public int getTitleId()
+        {
+            return titleId;
+        }
+
+        public void setTitleId(int titleId)
+        {
+            this.titleId = titleId;
         }
 
         public string getSurname()

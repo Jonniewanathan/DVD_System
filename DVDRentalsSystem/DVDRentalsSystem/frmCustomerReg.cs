@@ -130,7 +130,7 @@ namespace DVDRentalsSystem
                 customer.setEmail(txtEmail.Text);
                 customer.setSurname(txtSurname.Text);
                 customer.setForename(txtForename.Text);
-                customer.setTitle(cboTitle.Text);
+                customer.setTitleId((cboTitle.SelectedIndex)+1);
                 customer.setTown(txtTown.Text);
                 customer.setPhoneNo(txtPhone.Text);
                 customer.setStatus("A");
@@ -145,6 +145,9 @@ namespace DVDRentalsSystem
                 }
                 catch(OracleException f)
                 {
+                    MessageBox.Show(f.ToString(), "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     MessageBox.Show("Email already in system\n\nPlease enter a different Email", "Validation",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 

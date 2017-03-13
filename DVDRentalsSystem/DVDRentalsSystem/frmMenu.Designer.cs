@@ -37,6 +37,9 @@
             this.customerAdministrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblName = new System.Windows.Forms.Label();
+            this.updateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listCustomerRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +96,10 @@
             // customerAdministrationToolStripMenuItem
             // 
             this.customerAdministrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registerCustomerToolStripMenuItem});
+            this.registerCustomerToolStripMenuItem,
+            this.updateCustomerToolStripMenuItem,
+            this.listCustomerRentalsToolStripMenuItem,
+            this.removeCustomerToolStripMenuItem});
             this.customerAdministrationToolStripMenuItem.Name = "customerAdministrationToolStripMenuItem";
             this.customerAdministrationToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
             this.customerAdministrationToolStripMenuItem.Text = "Customer Administration";
@@ -101,7 +107,7 @@
             // registerCustomerToolStripMenuItem
             // 
             this.registerCustomerToolStripMenuItem.Name = "registerCustomerToolStripMenuItem";
-            this.registerCustomerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.registerCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.registerCustomerToolStripMenuItem.Text = "Register Customer";
             this.registerCustomerToolStripMenuItem.Click += new System.EventHandler(this.registerCustomerToolStripMenuItem_Click);
             // 
@@ -114,6 +120,24 @@
             this.lblName.Size = new System.Drawing.Size(133, 25);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "DVD System";
+            // 
+            // updateCustomerToolStripMenuItem
+            // 
+            this.updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
+            this.updateCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.updateCustomerToolStripMenuItem.Text = "Update Customer";
+            // 
+            // listCustomerRentalsToolStripMenuItem
+            // 
+            this.listCustomerRentalsToolStripMenuItem.Name = "listCustomerRentalsToolStripMenuItem";
+            this.listCustomerRentalsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.listCustomerRentalsToolStripMenuItem.Text = "List Customer Rentals";
+            // 
+            // removeCustomerToolStripMenuItem
+            // 
+            this.removeCustomerToolStripMenuItem.Name = "removeCustomerToolStripMenuItem";
+            this.removeCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.removeCustomerToolStripMenuItem.Text = "Remove Customer";
             // 
             // frmMenu
             // 
@@ -143,6 +167,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ToolStripMenuItem customerAdministrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listCustomerRentalsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeCustomerToolStripMenuItem;
     }
 }
 
