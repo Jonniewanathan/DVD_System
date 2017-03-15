@@ -35,11 +35,11 @@
             this.mnuDVDUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDVDList = new System.Windows.Forms.ToolStripMenuItem();
             this.customerAdministrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblName = new System.Windows.Forms.Label();
-            this.updateCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCustomerReg = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCustomerUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.listCustomerRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblName = new System.Windows.Forms.Label();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,64 +68,54 @@
             // mnuDVDReg
             // 
             this.mnuDVDReg.Name = "mnuDVDReg";
-            this.mnuDVDReg.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDReg.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDReg.Text = "Register DVD";
             this.mnuDVDReg.Click += new System.EventHandler(this.mnuDVDReg_Click);
             // 
             // mnuDVDRemove
             // 
             this.mnuDVDRemove.Name = "mnuDVDRemove";
-            this.mnuDVDRemove.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDRemove.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDRemove.Text = "Remove DVD";
             this.mnuDVDRemove.Click += new System.EventHandler(this.mnuDVDRemove_Click);
             // 
             // mnuDVDUpdate
             // 
             this.mnuDVDUpdate.Name = "mnuDVDUpdate";
-            this.mnuDVDUpdate.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDUpdate.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDUpdate.Text = "Update DVD";
             this.mnuDVDUpdate.Click += new System.EventHandler(this.mnuDVDUpdate_Click);
             // 
             // mnuDVDList
             // 
             this.mnuDVDList.Name = "mnuDVDList";
-            this.mnuDVDList.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDList.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDList.Text = "List DVDs";
             this.mnuDVDList.Click += new System.EventHandler(this.mnuDVDList_Click);
             // 
             // customerAdministrationToolStripMenuItem
             // 
             this.customerAdministrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registerCustomerToolStripMenuItem,
-            this.updateCustomerToolStripMenuItem,
+            this.mnuCustomerReg,
+            this.mnuCustomerUpdate,
             this.listCustomerRentalsToolStripMenuItem,
             this.removeCustomerToolStripMenuItem});
             this.customerAdministrationToolStripMenuItem.Name = "customerAdministrationToolStripMenuItem";
             this.customerAdministrationToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
             this.customerAdministrationToolStripMenuItem.Text = "Customer Administration";
             // 
-            // registerCustomerToolStripMenuItem
+            // mnuCustomerReg
             // 
-            this.registerCustomerToolStripMenuItem.Name = "registerCustomerToolStripMenuItem";
-            this.registerCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.registerCustomerToolStripMenuItem.Text = "Register Customer";
-            this.registerCustomerToolStripMenuItem.Click += new System.EventHandler(this.registerCustomerToolStripMenuItem_Click);
+            this.mnuCustomerReg.Name = "mnuCustomerReg";
+            this.mnuCustomerReg.Size = new System.Drawing.Size(188, 22);
+            this.mnuCustomerReg.Text = "Register Customer";
+            this.mnuCustomerReg.Click += new System.EventHandler(this.registerCustomerToolStripMenuItem_Click);
             // 
-            // lblName
+            // mnuCustomerUpdate
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(198, 126);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(133, 25);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "DVD System";
-            // 
-            // updateCustomerToolStripMenuItem
-            // 
-            this.updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
-            this.updateCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.updateCustomerToolStripMenuItem.Text = "Update Customer";
+            this.mnuCustomerUpdate.Name = "mnuCustomerUpdate";
+            this.mnuCustomerUpdate.Size = new System.Drawing.Size(188, 22);
+            this.mnuCustomerUpdate.Text = "Update Customer";
             // 
             // listCustomerRentalsToolStripMenuItem
             // 
@@ -138,6 +128,16 @@
             this.removeCustomerToolStripMenuItem.Name = "removeCustomerToolStripMenuItem";
             this.removeCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.removeCustomerToolStripMenuItem.Text = "Remove Customer";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(198, 126);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(133, 25);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "DVD System";
             // 
             // frmMenu
             // 
@@ -166,8 +166,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDVDList;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ToolStripMenuItem customerAdministrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registerCustomerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuCustomerReg;
+        private System.Windows.Forms.ToolStripMenuItem mnuCustomerUpdate;
         private System.Windows.Forms.ToolStripMenuItem listCustomerRentalsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeCustomerToolStripMenuItem;
     }

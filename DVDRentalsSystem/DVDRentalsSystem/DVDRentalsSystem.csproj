@@ -60,6 +60,12 @@
     <Compile Include="frmCustomerReg.Designer.cs">
       <DependentUpon>frmCustomerReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCustomerUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerUpdate.Designer.cs">
+      <DependentUpon>frmCustomerUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDVDlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Validation.cs" />
     <EmbeddedResource Include="frmCustomerReg.resx">
       <DependentUpon>frmCustomerReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerUpdate.resx">
+      <DependentUpon>frmCustomerUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDVDlist.resx">
       <DependentUpon>frmDVDlist.cs</DependentUpon>
