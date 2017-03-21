@@ -113,7 +113,7 @@
             this.btnRegister.Location = new System.Drawing.Point(99, 180);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 8;
+            this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -125,7 +125,7 @@
             this.cboPriceCatagory.Location = new System.Drawing.Point(99, 141);
             this.cboPriceCatagory.Name = "cboPriceCatagory";
             this.cboPriceCatagory.Size = new System.Drawing.Size(121, 21);
-            this.cboPriceCatagory.TabIndex = 7;
+            this.cboPriceCatagory.TabIndex = 4;
             // 
             // label3
             // 
@@ -143,7 +143,7 @@
             this.cboAgeRating.Location = new System.Drawing.Point(99, 109);
             this.cboAgeRating.Name = "cboAgeRating";
             this.cboAgeRating.Size = new System.Drawing.Size(121, 21);
-            this.cboAgeRating.TabIndex = 5;
+            this.cboAgeRating.TabIndex = 3;
             // 
             // label2
             // 
@@ -161,7 +161,7 @@
             this.cboGenre.Location = new System.Drawing.Point(99, 80);
             this.cboGenre.Name = "cboGenre";
             this.cboGenre.Size = new System.Drawing.Size(121, 21);
-            this.cboGenre.TabIndex = 3;
+            this.cboGenre.TabIndex = 2;
             // 
             // menuStrip1
             // 

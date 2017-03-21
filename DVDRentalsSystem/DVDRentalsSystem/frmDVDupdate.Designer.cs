@@ -94,7 +94,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(99, 180);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -105,7 +105,7 @@
             this.cboPriceCatagory.Location = new System.Drawing.Point(99, 141);
             this.cboPriceCatagory.Name = "cboPriceCatagory";
             this.cboPriceCatagory.Size = new System.Drawing.Size(121, 21);
-            this.cboPriceCatagory.TabIndex = 7;
+            this.cboPriceCatagory.TabIndex = 6;
             // 
             // label3
             // 
@@ -139,14 +139,14 @@
             this.cboGenre.Location = new System.Drawing.Point(99, 80);
             this.cboGenre.Name = "cboGenre";
             this.cboGenre.Size = new System.Drawing.Size(121, 21);
-            this.cboGenre.TabIndex = 3;
+            this.cboGenre.TabIndex = 4;
             // 
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(99, 54);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(121, 20);
-            this.txtTitle.TabIndex = 1;
+            this.txtTitle.TabIndex = 3;
             // 
             // label1
             // 
@@ -180,14 +180,14 @@
             this.txtSearch.Location = new System.Drawing.Point(43, 36);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 6;
+            this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(153, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 7;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);

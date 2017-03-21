@@ -35,13 +35,14 @@ namespace DVDRentalsSystem
         {          
             DataGridViewRow row = this.grdDVD.Rows[e.RowIndex];
 
-            int dvdID = Convert.ToInt32(row.Cells[0].Value);
+            int dvdid = Convert.ToInt32(row.Cells[0].Value);
 
-            txtDVDId.Text = dvdID.ToString("0000");
-            txtTitle.Text = row.Cells[1].Value.ToString();
-            cboAgeRating.Text = row.Cells[2].Value.ToString();
-            cboGenre.Text = row.Cells[3].Value.ToString();
-            cboPriceCatagory.Text = row.Cells[4].Value.ToString();
+            txtDVDId.Text = dvdid.ToString("0000");
+            txtTitle.Text = row.Cells[1].Value.ToString().Trim();
+            cboAgeRating.Text = row.Cells[2].Value.ToString().Trim();
+            cboGenre.Text = row.Cells[3].Value.ToString().Trim();
+            cboPriceCatagory.Text = row.Cells[4].Value.ToString().Trim();
+
         }
 
         private void frmDVDupdate_Load(object sender, EventArgs e)
