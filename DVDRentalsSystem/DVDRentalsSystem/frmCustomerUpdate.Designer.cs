@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.cboTitle = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -75,14 +75,15 @@
             this.label3.TabIndex = 47;
             this.label3.Text = "Customer ID";
             // 
-            // btnRegister
+            // btnUpdate
             // 
-            this.btnRegister.Location = new System.Drawing.Point(80, 526);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 46;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(80, 526);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 46;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // cboTitle
             // 
@@ -268,12 +269,14 @@
             this.mnuBack.Name = "mnuBack";
             this.mnuBack.Size = new System.Drawing.Size(44, 20);
             this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(37, 20);
             this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // label2
             // 
@@ -321,6 +324,7 @@
             this.grdCustomers.Name = "grdCustomers";
             this.grdCustomers.Size = new System.Drawing.Size(632, 199);
             this.grdCustomers.TabIndex = 49;
+            this.grdCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomers_CellClick);
             // 
             // label12
             // 
@@ -346,6 +350,7 @@
             this.btnSearch.TabIndex = 52;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmCustomerUpdate
             // 
@@ -357,7 +362,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.grdCustomers);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.cboTitle);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
@@ -375,6 +380,7 @@
             this.Controls.Add(this.txtForename);
             this.Name = "frmCustomerUpdate";
             this.Text = "frmCustomerUpdate";
+            this.Load += new System.EventHandler(this.frmCustomerUpdate_Load);
             this.grpAddress.ResumeLayout(false);
             this.grpAddress.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -388,7 +394,7 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ComboBox cboTitle;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;

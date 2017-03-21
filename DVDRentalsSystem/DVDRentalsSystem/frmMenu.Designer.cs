@@ -68,28 +68,28 @@
             // mnuDVDReg
             // 
             this.mnuDVDReg.Name = "mnuDVDReg";
-            this.mnuDVDReg.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDReg.Size = new System.Drawing.Size(143, 22);
             this.mnuDVDReg.Text = "Register DVD";
             this.mnuDVDReg.Click += new System.EventHandler(this.mnuDVDReg_Click);
             // 
             // mnuDVDRemove
             // 
             this.mnuDVDRemove.Name = "mnuDVDRemove";
-            this.mnuDVDRemove.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDRemove.Size = new System.Drawing.Size(143, 22);
             this.mnuDVDRemove.Text = "Remove DVD";
             this.mnuDVDRemove.Click += new System.EventHandler(this.mnuDVDRemove_Click);
             // 
             // mnuDVDUpdate
             // 
             this.mnuDVDUpdate.Name = "mnuDVDUpdate";
-            this.mnuDVDUpdate.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDUpdate.Size = new System.Drawing.Size(143, 22);
             this.mnuDVDUpdate.Text = "Update DVD";
             this.mnuDVDUpdate.Click += new System.EventHandler(this.mnuDVDUpdate_Click);
             // 
             // mnuDVDList
             // 
             this.mnuDVDList.Name = "mnuDVDList";
-            this.mnuDVDList.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDList.Size = new System.Drawing.Size(143, 22);
             this.mnuDVDList.Text = "List DVDs";
             this.mnuDVDList.Click += new System.EventHandler(this.mnuDVDList_Click);
             // 
@@ -116,6 +116,7 @@
             this.mnuCustomerUpdate.Name = "mnuCustomerUpdate";
             this.mnuCustomerUpdate.Size = new System.Drawing.Size(188, 22);
             this.mnuCustomerUpdate.Text = "Update Customer";
+            this.mnuCustomerUpdate.Click += new System.EventHandler(this.mnuCustomerUpdate_Click);
             // 
             // listCustomerRentalsToolStripMenuItem
             // 
@@ -149,6 +150,7 @@
             this.MainMenuStrip = this.mnuStrip;
             this.Name = "frmMenu";
             this.Text = "DVD Rental  Sysem";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);

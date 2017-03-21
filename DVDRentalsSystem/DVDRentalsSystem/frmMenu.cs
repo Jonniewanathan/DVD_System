@@ -51,5 +51,17 @@ namespace DVDRentalsSystem
             CustomerReg.Show();
             this.Hide();
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuCustomerUpdate_Click(object sender, EventArgs e)
+        {
+            frmCustomerUpdate CustomerUpdate = new frmCustomerUpdate(this);
+            CustomerUpdate.Show();
+            this.Hide();
+        }
     }
 }

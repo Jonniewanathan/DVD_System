@@ -90,6 +90,32 @@ namespace DVDRentalsSystem
             //https://www.codeproject.com/tips/483763/equivalent-function-of-mysql-real-escape-string-in
         }
 
+        public void updateCustomer(int customerId)
+        {
+            //Connect to db
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to update DVD record
+
+            string strSQL = "UPDATE Customer SET TitleId = " + getTitleId() + ",Forename = '" + getForename() + "', Surname = '" + getSurname() + "', DOB =  '" + getDob() + "', Address1 =  '" + getAddress1() + "', Address2 =  '" + getAddress2() + "', Town = '" + getTown() + "', CountyId = " + getCountyId() + ", CountryId =  " + getCountryId() + ", Email = '" + getEmail() + "', Phone = '" + getPhoneNo() + "' WHERE CustomerId = "+ customerId + "";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
+            //Close Connection
+            myConn.Close();
+        }
+
         public static DataSet getCustomers()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -122,7 +148,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT D.DVDID ,D.TITLE ,A.AGERATING ,G.GENRE ,R.Description AS " + "PriceCatagory" + " ,D.STATUS FROM DVDs D, AgeRating A,Genre G, Rate R  WHERE D.Title like '%" + surname + "%' AND Status != 'R' AND A.AgeRatingId = D.AgeRatingId AND D.GenreId = G.GenreId AND D.RateId = R.RateId ";
+            string strSql = "SELECT C.CustomerId, T.TITLE, C.FORENAME, C.SURNAME, C.DOB, C.EMAIL, C.PHONE, C.ADDRESS1, C.ADDRESS2, C.TOWN, CY.COUNTY, CRY.COUNTRY FROM CUSTOMER C, COUNTIES CY, COUNTRIES CRY, TITLE T WHERE T.TITLEID = C.TITLEID AND C.COUNTYID = CY.COUNTIESID AND C.COUNTRYID = CRY.COUNTRIESID AND C.SURNAME LIKE '%" + surname + "%'";
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
