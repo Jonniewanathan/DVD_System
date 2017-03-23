@@ -51,44 +51,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customers.cs" />
+    <Compile Include="Customer\Customers.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="DVDs.cs" />
-    <Compile Include="frmCustomerReg.cs">
+    <Compile Include="DVD\DVDs.cs" />
+    <Compile Include="Customer\frmCustomerReg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCustomerReg.Designer.cs">
+    <Compile Include="Customer\frmCustomerReg.Designer.cs">
       <DependentUpon>frmCustomerReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCustomerUpdate.cs">
+    <Compile Include="Customer\frmCustomerUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCustomerUpdate.Designer.cs">
+    <Compile Include="Customer\frmCustomerUpdate.Designer.cs">
       <DependentUpon>frmCustomerUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDVDlist.cs">
+    <Compile Include="DVD\frmDVDlist.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDVDlist.Designer.cs">
+    <Compile Include="DVD\frmDVDlist.Designer.cs">
       <DependentUpon>frmDVDlist.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDVDReg.cs">
+    <Compile Include="DVD\frmDVDReg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDVDReg.Designer.cs">
+    <Compile Include="DVD\frmDVDReg.Designer.cs">
       <DependentUpon>frmDVDReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDVDRemove.cs">
+    <Compile Include="DVD\frmDVDRemove.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDVDRemove.Designer.cs">
+    <Compile Include="DVD\frmDVDRemove.Designer.cs">
       <DependentUpon>frmDVDRemove.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDVDupdate.cs">
+    <Compile Include="DVD\frmDVDupdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDVDupdate.Designer.cs">
+    <Compile Include="DVD\frmDVDupdate.Designer.cs">
       <DependentUpon>frmDVDupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\frmCustomerRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\frmCustomerRemove.Designer.cs">
+      <DependentUpon>frmCustomerRemove.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
@@ -99,23 +105,26 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation.cs" />
-    <EmbeddedResource Include="frmCustomerReg.resx">
+    <EmbeddedResource Include="Customer\frmCustomerReg.resx">
       <DependentUpon>frmCustomerReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCustomerUpdate.resx">
+    <EmbeddedResource Include="Customer\frmCustomerUpdate.resx">
       <DependentUpon>frmCustomerUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDVDlist.resx">
+    <EmbeddedResource Include="DVD\frmDVDlist.resx">
       <DependentUpon>frmDVDlist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDVDReg.resx">
+    <EmbeddedResource Include="DVD\frmDVDReg.resx">
       <DependentUpon>frmDVDReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDVDRemove.resx">
+    <EmbeddedResource Include="DVD\frmDVDRemove.resx">
       <DependentUpon>frmDVDRemove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDVDupdate.resx">
+    <EmbeddedResource Include="DVD\frmDVDupdate.resx">
       <DependentUpon>frmDVDupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\frmCustomerRemove.resx">
+      <DependentUpon>frmCustomerRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

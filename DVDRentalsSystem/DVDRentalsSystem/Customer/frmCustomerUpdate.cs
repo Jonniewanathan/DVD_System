@@ -14,6 +14,7 @@ namespace DVDRentalsSystem
     public partial class frmCustomerUpdate : Form
     {
         frmMenu menu;
+        private DateTime today;
 
         public frmCustomerUpdate()
         {
@@ -64,18 +65,18 @@ namespace DVDRentalsSystem
 
             int customerId = Convert.ToInt32(row.Cells[0].Value);
 
-            txtCustomerId.Text = customerId.ToString("0000");
-            cboTitle.Text = row.Cells[1].Value.ToString();
-            txtForename.Text = row.Cells[2].Value.ToString();
-            txtSurname.Text = row.Cells[3].Value.ToString();
-            dtpDOB.Text = row.Cells[4].Value.ToString();
-            txtEmail.Text = row.Cells[5].Value.ToString();
-            txtPhone.Text = row.Cells[6].Value.ToString();
-            txtAddress1.Text = row.Cells[7].Value.ToString();
-            txtAddress2.Text = row.Cells[8].Value.ToString();
-            txtTown.Text = row.Cells[9].Value.ToString();
-            cboCounty.Text = row.Cells[10].Value.ToString();
-            cboCountry.Text = row.Cells[11].Value.ToString();
+            txtCustomerId.Text = customerId.ToString("0000").Trim();
+            cboTitle.Text = row.Cells[1].Value.ToString().Trim();
+            txtForename.Text = row.Cells[2].Value.ToString().Trim();
+            txtSurname.Text = row.Cells[3].Value.ToString().Trim();
+            dtpDOB.Text = row.Cells[4].Value.ToString().Trim();
+            txtEmail.Text = row.Cells[5].Value.ToString().Trim();
+            txtPhone.Text = row.Cells[6].Value.ToString().Trim();
+            txtAddress1.Text = row.Cells[7].Value.ToString().Trim();
+            txtAddress2.Text = row.Cells[8].Value.ToString().Trim();
+            txtTown.Text = row.Cells[9].Value.ToString().Trim();
+            cboCounty.Text = row.Cells[10].Value.ToString().Trim();
+            cboCountry.Text = row.Cells[11].Value.ToString().Trim();
             
         }
 
@@ -84,7 +85,7 @@ namespace DVDRentalsSystem
             Customers customer = new Customers();
 
             DateTime dateOfBirth = dtpDOB.Value;
-            DateTime today = DateTime.Now;
+            today = DateTime.Now;
 
             int age = today.Year - dateOfBirth.Year;
 
@@ -178,6 +179,10 @@ namespace DVDRentalsSystem
                 try
                 {
                     customer.updateCustomer(Convert.ToInt32(txtCustomerId.Text));
+
+                    MessageBox.Show("Customer Updated!", "Updated!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     clearData();
                 }
                 catch (OracleException f)
@@ -202,6 +207,8 @@ namespace DVDRentalsSystem
             txtSurname.Text = "";
             txtPhone.Text = "";
             txtTown.Text = "";
+
+            dtpDOB.Text = today.ToString(); 
 
             cboCountry.SelectedIndex = 85;
             cboCounty.SelectedIndex = 0;

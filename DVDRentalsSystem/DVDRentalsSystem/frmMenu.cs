@@ -63,5 +63,12 @@ namespace DVDRentalsSystem
             CustomerUpdate.Show();
             this.Hide();
         }
+
+        private void removeCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomerRemove customerRemove = new frmCustomerRemove(this);
+            customerRemove.Show();
+            this.Hide();
+        }
     }
 }

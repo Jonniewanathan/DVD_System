@@ -129,6 +129,7 @@
             this.removeCustomerToolStripMenuItem.Name = "removeCustomerToolStripMenuItem";
             this.removeCustomerToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.removeCustomerToolStripMenuItem.Text = "Remove Customer";
+            this.removeCustomerToolStripMenuItem.Click += new System.EventHandler(this.removeCustomerToolStripMenuItem_Click);
             // 
             // lblName
             // 

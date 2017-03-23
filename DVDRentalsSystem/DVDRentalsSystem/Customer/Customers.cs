@@ -116,6 +116,32 @@ namespace DVDRentalsSystem
             myConn.Close();
         }
 
+        public void removeCustomer(int customerId)
+        {
+            //Connect to db
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to update DVD record
+
+            string strSQL = "UPDATE Customer set Status = 'R' WHERE CustomerId = " + customerId + "";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
+            //Close Connection
+            myConn.Close();
+        }
+
         public static DataSet getCustomers()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -148,7 +174,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT C.CustomerId, T.TITLE, C.FORENAME, C.SURNAME, C.DOB, C.EMAIL, C.PHONE, C.ADDRESS1, C.ADDRESS2, C.TOWN, CY.COUNTY, CRY.COUNTRY FROM CUSTOMER C, COUNTIES CY, COUNTRIES CRY, TITLE T WHERE T.TITLEID = C.TITLEID AND C.COUNTYID = CY.COUNTIESID AND C.COUNTRYID = CRY.COUNTRIESID AND C.SURNAME LIKE '%" + surname + "%'";
+            string strSql = "SELECT C.CustomerId, T.TITLE, C.FORENAME, C.SURNAME, C.DOB, C.EMAIL, C.PHONE, C.ADDRESS1, C.ADDRESS2, C.TOWN, CY.COUNTY, CRY.COUNTRY FROM CUSTOMER C, COUNTIES CY, COUNTRIES CRY, TITLE T WHERE T.TITLEID = C.TITLEID AND C.COUNTYID = CY.COUNTIESID AND C.COUNTRYID = CRY.COUNTRIESID AND C.SURNAME LIKE '%" + surname + "%' AND C.STATUS = 'A'";
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
