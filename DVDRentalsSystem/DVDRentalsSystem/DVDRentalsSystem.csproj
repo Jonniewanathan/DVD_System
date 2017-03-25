@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer\Customers.cs" />
+    <Compile Include="Customer\Rentals.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="DVD\DVDs.cs" />
     <Compile Include="Customer\frmCustomerReg.cs">
