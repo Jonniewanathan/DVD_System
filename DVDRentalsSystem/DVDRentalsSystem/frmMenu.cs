@@ -70,5 +70,12 @@ namespace DVDRentalsSystem
             customerRemove.Show();
             this.Hide();
         }
+
+        private void mnuDVDRental_Click(object sender, EventArgs e)
+        {
+            frmDVDRental dvdRental = new frmDVDRental(this);
+            dvdRental.Show();
+            this.Hide();
+        }
     }
 }

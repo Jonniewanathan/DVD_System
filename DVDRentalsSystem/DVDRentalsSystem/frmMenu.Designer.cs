@@ -40,6 +40,8 @@
             this.listCustomerRentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblName = new System.Windows.Forms.Label();
+            this.rentalAdmistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDVDRental = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,8 @@
             // 
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dVDAdministrationToolStripMenuItem,
-            this.customerAdministrationToolStripMenuItem});
+            this.customerAdministrationToolStripMenuItem,
+            this.rentalAdmistrationToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
             this.mnuStrip.Size = new System.Drawing.Size(547, 24);
@@ -68,28 +71,28 @@
             // mnuDVDReg
             // 
             this.mnuDVDReg.Name = "mnuDVDReg";
-            this.mnuDVDReg.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDReg.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDReg.Text = "Register DVD";
             this.mnuDVDReg.Click += new System.EventHandler(this.mnuDVDReg_Click);
             // 
             // mnuDVDRemove
             // 
             this.mnuDVDRemove.Name = "mnuDVDRemove";
-            this.mnuDVDRemove.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDRemove.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDRemove.Text = "Remove DVD";
             this.mnuDVDRemove.Click += new System.EventHandler(this.mnuDVDRemove_Click);
             // 
             // mnuDVDUpdate
             // 
             this.mnuDVDUpdate.Name = "mnuDVDUpdate";
-            this.mnuDVDUpdate.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDUpdate.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDUpdate.Text = "Update DVD";
             this.mnuDVDUpdate.Click += new System.EventHandler(this.mnuDVDUpdate_Click);
             // 
             // mnuDVDList
             // 
             this.mnuDVDList.Name = "mnuDVDList";
-            this.mnuDVDList.Size = new System.Drawing.Size(143, 22);
+            this.mnuDVDList.Size = new System.Drawing.Size(152, 22);
             this.mnuDVDList.Text = "List DVDs";
             this.mnuDVDList.Click += new System.EventHandler(this.mnuDVDList_Click);
             // 
@@ -141,6 +144,21 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "DVD System";
             // 
+            // rentalAdmistrationToolStripMenuItem
+            // 
+            this.rentalAdmistrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuDVDRental});
+            this.rentalAdmistrationToolStripMenuItem.Name = "rentalAdmistrationToolStripMenuItem";
+            this.rentalAdmistrationToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.rentalAdmistrationToolStripMenuItem.Text = "Rental Admistration";
+            // 
+            // mnuDVDRental
+            // 
+            this.mnuDVDRental.Name = "mnuDVDRental";
+            this.mnuDVDRental.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDRental.Text = "Rent DVDs";
+            this.mnuDVDRental.Click += new System.EventHandler(this.mnuDVDRental_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +191,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuCustomerUpdate;
         private System.Windows.Forms.ToolStripMenuItem listCustomerRentalsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentalAdmistrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuDVDRental;
     }
 }
 

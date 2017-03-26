@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 
 namespace DVDRentalsSystem.Customer
@@ -18,14 +19,13 @@ namespace DVDRentalsSystem.Customer
         private string dateDue;
         private string dateReturned;
 
-        private ArrayList DVDList;
-
+        private ArrayList DVDList = new ArrayList();
         private int DVDid;
 
 
         public Rentals()
         {
-
+            DVDList.Cast<int>();
         }
 
         public static int nextRentalNo()
@@ -63,16 +63,28 @@ namespace DVDRentalsSystem.Customer
             return intNextRentalNo;
         }
 
-        public void regCustomer()
+
+        public void rentDVD()
+        {
+            this.setRentalsId(nextRentalNo());
+            addRental();
+
+            for (int i = 0; i < DVDList.Count; i++)
+            {                
+                    addToRentalList(Convert.ToInt16(DVDList[i]));
+                    setDVDUnavailable(Convert.ToInt16(DVDList[i]));
+                    Console.WriteLine(DVDList[i]);
+            }
+        }
+
+        public void addRental()
         {
             //Connect to db
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
             //Define SQL Query to INSERT stock record
-            string strSQL = "INSERT INTO Customer VALUES(" + getCustomerId() + ",'" +
-                getTitleId() + "', '" + getForename() + "', '" + getSurname() + "', '" +
-                getDob() + "', '" + getAddress1() + "', '" + getAddress2() + "', '" + getTown() + "', '" + getCountyId() + "', '" + getCountryId() + "', '" + getEmail() + "', '" + getPhoneNo() + "', '" + getStatus() + "')";
+            string strSQL = "INSERT INTO RENTALS VALUES(" + getRentalsId() + ", " + getCustomerId() + "," + getCost() + ", '" + getDateFrom() + "', '" + getDateDue() + "')";
 
             //Execute the Command
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
@@ -81,12 +93,76 @@ namespace DVDRentalsSystem.Customer
 
             //Close Connection
             myConn.Close();
-            //https://www.codeproject.com/tips/483763/equivalent-function-of-mysql-real-escape-string-in
         }
 
-        public void rentDVD()
+        public static decimal getPrice(int RateId)
         {
-            
+            //Variable to hold value to be returned
+            decimal price;
+
+            //Connect to the DB
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL query to get price of the DVD
+            string strSQL = "SELECT R.Price FROM Rate R, DVDS D WHERE R.RateId = " + RateId + "";
+
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            //execute the sql query
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            //Read the first (only) value returned by query
+            dr.Read();
+
+            price = Convert.ToDecimal(dr.GetValue(0));
+
+            //Close the Db connection
+            myConn.Close();
+
+            //Return price
+            return price;
+        }
+
+        public void addToRentalList(int DVDId)
+        {
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to INSERT stock record
+            string strSQL = "INSERT INTO RENTALSITEMS VALUES(" + rentalsId + ", " + DVDId + ", NULL)";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            cmd.ExecuteNonQuery();
+
+            //Close Connection
+            myConn.Close();
+        }
+
+        public void setDVDUnavailable(int DVDId)
+        {
+            //Connect to db
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to update DVD record
+            string strSQL = "UPDATE DVDs SET Status = 'U' WHERE DVDId = " + DVDId + "";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
+            //Close Connection
+            myConn.Close();
         }
 
         public DataSet listDailyRentals(string date)
@@ -174,7 +250,7 @@ namespace DVDRentalsSystem.Customer
             return DVDList;
         }
 
-        public void setDVDId(ArrayList DVDList)
+        public void setDVDList(ArrayList DVDList)
         {
             this.DVDList = DVDList;
         }
