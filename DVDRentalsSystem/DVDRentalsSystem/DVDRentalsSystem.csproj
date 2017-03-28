@@ -58,7 +58,12 @@
     <Compile Include="Rentals\frmDVDRental.Designer.cs">
       <DependentUpon>frmDVDRental.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rentals\Rentals.cs" />
+    <Compile Include="Rentals\frmDVDReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rentals\frmDVDReturn.Designer.cs">
+      <DependentUpon>frmDVDReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="DVD\DVDs.cs" />
     <Compile Include="Customer\frmCustomerReg.cs">
@@ -111,6 +116,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rentals\Rentals.cs" />
     <Compile Include="Validation.cs" />
     <EmbeddedResource Include="Customer\frmCustomerReg.resx">
       <DependentUpon>frmCustomerReg.cs</DependentUpon>
@@ -148,6 +154,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rentals\frmDVDReturn.resx">
+      <DependentUpon>frmDVDReturn.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

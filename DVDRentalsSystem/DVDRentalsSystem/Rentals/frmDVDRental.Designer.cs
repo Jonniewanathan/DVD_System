@@ -317,6 +317,7 @@
             this.cboNumOfDays.Name = "cboNumOfDays";
             this.cboNumOfDays.Size = new System.Drawing.Size(121, 21);
             this.cboNumOfDays.TabIndex = 86;
+            this.cboNumOfDays.SelectedIndexChanged += new System.EventHandler(this.cboNumOfDays_SelectedIndexChanged);
             // 
             // frmDVDRental
             // 

@@ -31,7 +31,7 @@ namespace DVDRentalsSystem
 
         public Customers()
         {
-
+            
         }
 
         public static int nextCustNo()

@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVDRentalsSystem.Customer;
 
 namespace DVDRentalsSystem
 {
@@ -134,11 +133,15 @@ namespace DVDRentalsSystem
         private void btnAddToBasket_Click(object sender, EventArgs e)
         {
             if (searchClick)
-            {               
+            {
+                searchClick = false;
+                            
                 if (!linearSearch(Convert.ToInt16(txtDVDId.Text)))
                 {
-                    searchClick = false;
+                   
                     int number = Convert.ToInt16(txtDVDId.Text);
+
+                    
 
                     decimal price = Rentals.getPrice((cboPriceCatagory.SelectedIndex) + 1);
                     DataGridViewRow row = (DataGridViewRow)grdDVDBasket.Rows[0].Clone();
@@ -198,6 +201,13 @@ namespace DVDRentalsSystem
             }
 
             return result;
+        }
+
+        private void cboNumOfDays_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
+            totalPrice = totalPrice * numOfDays;
+            txtTotalPrice.Text = totalPrice.ToString();
         }
     }
 }

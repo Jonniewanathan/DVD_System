@@ -10,6 +10,6 @@ namespace DVDRentalsSystem
     {
         public const string college = "Data Source = oracle/orcl; User Id = t00125172; Password = cqpwq77x;";
         public const string home = "Data Source = localhost/xe; User Id = system; Password = oracle;";
-        public const string oradb = home;
+        public const string oradb = college;
     }
 }

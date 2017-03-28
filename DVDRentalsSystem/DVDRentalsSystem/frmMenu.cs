@@ -77,5 +77,12 @@ namespace DVDRentalsSystem
             dvdRental.Show();
             this.Hide();
         }
+
+        private void returnDVDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDVDReturn dvdReturn = new frmDVDReturn(this);
+            dvdReturn.Show();
+            this.Hide();
+        }
     }
 }

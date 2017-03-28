@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 
-namespace DVDRentalsSystem.Customer
-{
+namespace DVDRentalsSystem {
+
     class Rentals
     {
         private int rentalsId;
@@ -70,10 +70,9 @@ namespace DVDRentalsSystem.Customer
             addRental();
 
             for (int i = 0; i < DVDList.Count; i++)
-            {                
-                    addToRentalList(Convert.ToInt16(DVDList[i]));
-                    setDVDUnavailable(Convert.ToInt16(DVDList[i]));
-                    Console.WriteLine(DVDList[i]);
+            {
+                addToRentalList(Convert.ToInt16(DVDList[i]));
+                setDVDUnavailable(Convert.ToInt16(DVDList[i]));
             }
         }
 
@@ -172,7 +171,7 @@ namespace DVDRentalsSystem.Customer
 
         public void returnDVD()
         {
-            
+
         }
 
         public int getRentalsId()
@@ -254,8 +253,5 @@ namespace DVDRentalsSystem.Customer
         {
             this.DVDList = DVDList;
         }
-
-
-
     }
 }
