@@ -38,7 +38,6 @@ namespace DVDRentalsSystem
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-
             DataTable dt = DVDs.getDVD(Convert.ToInt16(txtSearch.Text)).Tables["ss"];
 
             try

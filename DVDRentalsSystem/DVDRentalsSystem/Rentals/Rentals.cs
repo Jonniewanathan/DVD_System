@@ -68,12 +68,12 @@ namespace DVDRentalsSystem {
         {
             this.setRentalsId(nextRentalNo());
             addRental();
-
             for (int i = 0; i < DVDList.Count; i++)
             {
                 addToRentalList(Convert.ToInt16(DVDList[i]));
                 setDVDUnavailable(Convert.ToInt16(DVDList[i]));
             }
+            
         }
 
         public void addRental()
@@ -164,6 +164,56 @@ namespace DVDRentalsSystem {
             myConn.Close();
         }
 
+        public void setDVDAvailable()
+        {
+            //Connect to db
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to update DVD record
+            string strSQL = "UPDATE DVDs SET Status = 'A' WHERE DVDId = " + DVDid + "";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
+            //Close Connection
+            myConn.Close();
+        }
+
+        public void setReturnDate()
+        {
+            
+
+            //Connect to db
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            //Define SQL Query to update DVD record
+            string strSQL = "UPDATE RENTALSITEMS SET DATERETURNED = '" + dateReturned + "' WHERE DVDID = " + DVDid + " AND DATERETURNED IS NULL";
+
+            //Execute the Command
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
+            //Close Connection
+            myConn.Close();
+        }
+           
         public DataSet listDailyRentals(string date)
         {
             return new DataSet();
@@ -171,7 +221,58 @@ namespace DVDRentalsSystem {
 
         public void returnDVD()
         {
+            setReturnDate();
+            setDVDAvailable();
+        }
 
+        public static DataSet getDVD(int DVDId)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            //connect to the database
+            conn.Open();
+
+            //define sql query
+            string strSql = "SELECT * FROM DVDs WHERE Status != 'A' AND Status != 'R' AND DVDId = " + DVDId;
+
+            //execute the query
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+
+            //get the data onto the form
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            //uses a data adapter to fill the dataset
+            da.Fill(ds, "ss");
+
+            //close the database
+            conn.Close();
+
+            return ds;
+        }
+
+        public DataSet getRentals()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            //connect to the database
+            conn.Open();
+
+            //define sql query
+            string strSql = "SELECT R.RENTALSID,R.DATEDUE FROM RENTALSITEMS RI,RENTALS R WHERE RI.DVDID = " + DVDid + " AND R.RENTALSID = RI.RENTALSID AND RI.DATERETURNED IS NULL";
+
+            //execute the query
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+
+            //get the data onto the form
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            //uses a data adapter to fill the dataset
+            da.Fill(ds, "ss");
+
+            //close the database
+            conn.Close();
+
+            return ds;
         }
 
         public int getRentalsId()

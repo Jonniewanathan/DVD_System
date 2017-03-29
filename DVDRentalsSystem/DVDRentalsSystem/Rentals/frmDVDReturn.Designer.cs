@@ -29,7 +29,7 @@
         {
             this.txtDVDId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.grpDVDUpdate = new System.Windows.Forms.GroupBox();
+            this.grpDVDReturn = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.cboPriceCatagory = new System.Windows.Forms.ComboBox();
@@ -49,7 +49,7 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDaysOver = new System.Windows.Forms.TextBox();
-            this.grpDVDUpdate.SuspendLayout();
+            this.grpDVDReturn.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,25 +70,24 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "DVDId";
             // 
-            // grpDVDUpdate
+            // grpDVDReturn
             // 
-            this.grpDVDUpdate.Controls.Add(this.txtDVDId);
-            this.grpDVDUpdate.Controls.Add(this.label4);
-            this.grpDVDUpdate.Controls.Add(this.btnReturn);
-            this.grpDVDUpdate.Controls.Add(this.cboPriceCatagory);
-            this.grpDVDUpdate.Controls.Add(this.label3);
-            this.grpDVDUpdate.Controls.Add(this.cboAgeRating);
-            this.grpDVDUpdate.Controls.Add(this.label2);
-            this.grpDVDUpdate.Controls.Add(this.cboGenre);
-            this.grpDVDUpdate.Controls.Add(this.txtTitle);
-            this.grpDVDUpdate.Controls.Add(this.label1);
-            this.grpDVDUpdate.Controls.Add(this.lblTitle);
-            this.grpDVDUpdate.Location = new System.Drawing.Point(12, 83);
-            this.grpDVDUpdate.Name = "grpDVDUpdate";
-            this.grpDVDUpdate.Size = new System.Drawing.Size(248, 223);
-            this.grpDVDUpdate.TabIndex = 16;
-            this.grpDVDUpdate.TabStop = false;
-            this.grpDVDUpdate.Text = "Return DVD";
+            this.grpDVDReturn.Controls.Add(this.txtDVDId);
+            this.grpDVDReturn.Controls.Add(this.label4);
+            this.grpDVDReturn.Controls.Add(this.cboPriceCatagory);
+            this.grpDVDReturn.Controls.Add(this.label3);
+            this.grpDVDReturn.Controls.Add(this.cboAgeRating);
+            this.grpDVDReturn.Controls.Add(this.label2);
+            this.grpDVDReturn.Controls.Add(this.cboGenre);
+            this.grpDVDReturn.Controls.Add(this.txtTitle);
+            this.grpDVDReturn.Controls.Add(this.label1);
+            this.grpDVDReturn.Controls.Add(this.lblTitle);
+            this.grpDVDReturn.Location = new System.Drawing.Point(12, 83);
+            this.grpDVDReturn.Name = "grpDVDReturn";
+            this.grpDVDReturn.Size = new System.Drawing.Size(248, 223);
+            this.grpDVDReturn.TabIndex = 16;
+            this.grpDVDReturn.TabStop = false;
+            this.grpDVDReturn.Text = "Return DVD";
             // 
             // label4
             // 
@@ -101,12 +100,13 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(99, 180);
+            this.btnReturn.Location = new System.Drawing.Point(361, 180);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(75, 23);
             this.btnReturn.TabIndex = 8;
-            this.btnReturn.Text = "Remove";
+            this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // cboPriceCatagory
             // 
@@ -209,6 +209,7 @@
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -258,18 +259,19 @@
             this.ClientSize = new System.Drawing.Size(500, 318);
             this.Controls.Add(this.txtDaysOver);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.grpDVDUpdate);
+            this.Controls.Add(this.grpDVDReturn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Name = "frmDVDReturn";
-            this.Text = "frmDVDReturn";
+            this.Text = "Return DVD";
             this.Load += new System.EventHandler(this.frmDVDReturn_Load);
-            this.grpDVDUpdate.ResumeLayout(false);
-            this.grpDVDUpdate.PerformLayout();
+            this.grpDVDReturn.ResumeLayout(false);
+            this.grpDVDReturn.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -281,7 +283,7 @@
 
         private System.Windows.Forms.TextBox txtDVDId;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox grpDVDUpdate;
+        private System.Windows.Forms.GroupBox grpDVDReturn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.ComboBox cboPriceCatagory;
