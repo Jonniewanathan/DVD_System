@@ -59,7 +59,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT D.DVDID ,D.TITLE ,A.AGERATING ,G.GENRE ,R.Description AS " + "PriceCatagory" + " ,D.STATUS FROM DVDs D, AgeRating A,Genre G, Rate R  WHERE D.Title like '%" + title + "%' AND Status != 'R' AND A.AgeRatingId = D.AgeRatingId AND D.GenreId = G.GenreId AND D.RateId = R.RateId ";
+            string strSql = "SELECT D.DVDID ,D.TITLE ,A.AGERATING ,G.GENRE ,R.Description AS " + "PriceCatagory" + " ,D.STATUS, D.AGERATINGID, D.GENREID, D.RATEID FROM DVDs D, AgeRating A,Genre G, Rate R  WHERE D.Title like '%" + title + "%' AND Status != 'R' AND A.AgeRatingId = D.AgeRatingId AND D.GenreId = G.GenreId AND D.RateId = R.RateId ";
             
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
@@ -77,14 +77,14 @@ namespace DVDRentalsSystem
             return ds;
         }
 
-        public static DataSet getDVD(int DVDId)
+        public static DataSet getDVD(int DVDid)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             //connect to the database
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT * FROM DVDs WHERE Status != 'R' AND Status != 'U' AND DVDId = " + DVDId ;
+            string strSql = "SELECT * FROM DVDs WHERE Status != 'R' AND Status != 'U' AND DVDId = " + DVDid ;
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
@@ -182,21 +182,21 @@ namespace DVDRentalsSystem
 			//https://www.codeproject.com/tips/483763/equivalent-function-of-mysql-real-escape-string-in
         }
 
-        public void updateDVD(int DVDId)
+        public void updateDVD()
         {
             //Connect to db
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
             //Define SQL Query to update DVD record
-            string strSQL = "UPDATE DVDs SET Title = '" + getTitle().ToUpper() + "', AgeRatingID = '" + getAgeRatingId() + "', GenreID = '" + getGenreId() + "', RateID = '" + getPriceCatagoryId() + "' WHERE DVDId = " + DVDId + "";
+            string strSQL = "UPDATE DVDs SET Title = '" + getTitle().ToUpper() + "', AgeRatingID = " + getAgeRatingId() + ", GenreID = " + getGenreId() + ", RateID = " + getPriceCatagoryId() + " WHERE DVDId = " + getDvdId();
 
             //Execute the Command
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
-
+            cmd.ExecuteNonQuery();
             try
             {
-                cmd.ExecuteNonQuery();
+                
             }
             catch (OracleException e)
             {

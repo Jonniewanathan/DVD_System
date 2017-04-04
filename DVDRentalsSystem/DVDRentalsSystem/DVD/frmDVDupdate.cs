@@ -38,11 +38,11 @@ namespace DVDRentalsSystem
             int dvdid = Convert.ToInt32(row.Cells[0].Value);
 
             txtDVDId.Text = dvdid.ToString("0000");
-            txtTitle.Text = row.Cells[1].Value.ToString().Trim();
-            cboAgeRating.Text = row.Cells[2].Value.ToString().Trim();
-            cboGenre.Text = row.Cells[3].Value.ToString().Trim();
-            cboPriceCatagory.Text = row.Cells[4].Value.ToString().Trim();
 
+            txtTitle.Text = row.Cells[1].Value.ToString().Trim();
+            cboAgeRating.SelectedIndex = (Convert.ToInt16(row.Cells[6].Value.ToString())-1);
+            cboGenre.SelectedIndex = (Convert.ToInt16(row.Cells[7].Value.ToString())-1);
+            cboPriceCatagory.SelectedIndex = (Convert.ToInt16(row.Cells[8].Value.ToString())-1);
         }
 
         private void frmDVDupdate_Load(object sender, EventArgs e)
@@ -105,8 +105,10 @@ namespace DVDRentalsSystem
                 DVD.setAgeRatingId((cboAgeRating.SelectedIndex)+1);
                 DVD.setGenreId((cboGenre.SelectedIndex)+1);
                 DVD.setPriceCatagoryId((cboPriceCatagory.SelectedIndex)+1);
+                DVD.setDvdId(Convert.ToInt16(txtDVDId.Text));
 
-                DVD.updateDVD(Convert.ToInt16(txtDVDId.Text));
+
+                DVD.updateDVD();
 
                 MessageBox.Show("DVD " + txtDVDId.Text + " Updated!", "Confirmation",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
