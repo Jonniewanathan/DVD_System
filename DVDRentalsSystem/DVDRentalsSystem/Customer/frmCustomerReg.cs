@@ -141,6 +141,8 @@ namespace DVDRentalsSystem
                 try
                 {
                     customer.regCustomer();
+                    MessageBox.Show(txtForename.Text + " " + txtSurname.Text + " has been registered to the system", "Registered",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
                 }
                 catch(OracleException f)

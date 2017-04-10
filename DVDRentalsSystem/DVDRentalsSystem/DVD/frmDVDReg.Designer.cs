@@ -59,6 +59,7 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(99, 54);
+            this.txtTitle.MaxLength = 35;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(121, 20);
             this.txtTitle.TabIndex = 1;

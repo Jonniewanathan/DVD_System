@@ -65,10 +65,16 @@ namespace DVDRentalsSystem
         {
             Customers customer = new Customers();
 
-            customer.removeCustomer(Convert.ToInt16(txtCustomerId.Text));
-
-            MessageBox.Show(txtForename.Text + " " + txtSurname.Text + "Has been de-Registered", "Customer Removed",
+            MessageBox.Show(txtForename.Text.TrimEnd() + " " + txtSurname.Text.TrimEnd() + " has been de-Registered", "Customer Removed",
                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            customer.removeCustomer(Convert.ToInt16(txtCustomerId.Text));
+       
+        }
+
+        private void frmCustomerRemove_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

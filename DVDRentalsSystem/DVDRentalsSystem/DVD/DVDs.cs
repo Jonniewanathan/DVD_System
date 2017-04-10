@@ -238,7 +238,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT * FROM Genre";
+            string strSql = "SELECT * FROM Genre ORDER BY GenreId";
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
@@ -265,7 +265,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT * FROM AgeRating";
+            string strSql = "SELECT * FROM AgeRating ORDER BY AGERATINGID";
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);
