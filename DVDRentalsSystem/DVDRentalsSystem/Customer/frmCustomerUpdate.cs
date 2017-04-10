@@ -162,15 +162,15 @@ namespace DVDRentalsSystem
             }
             else
             {
-                customer.setAddress1(txtAddress1.Text);
-                customer.setAddress2(txtAddress2.Text);
+                customer.setAddress1(txtAddress1.Text.ToUpper());
+                customer.setAddress2(txtAddress2.Text.ToUpper());
                 customer.setCustomerId(Convert.ToInt32(txtCustomerId.Text));
-                customer.setEmail(txtEmail.Text);
-                customer.setSurname(txtSurname.Text);
-                customer.setForename(txtForename.Text);
+                customer.setEmail(txtEmail.Text.ToUpper());
+                customer.setSurname(txtSurname.Text.ToUpper());
+                customer.setForename(txtForename.Text.ToUpper());
                 customer.setTitleId((cboTitle.SelectedIndex) + 1);
-                customer.setTown(txtTown.Text);
-                customer.setPhoneNo(txtPhone.Text);
+                customer.setTown(txtTown.Text.ToUpper());
+                customer.setPhoneNo(txtPhone.Text.ToUpper());
                 customer.setStatus("A");
                 customer.setCountryId((cboCountry.SelectedIndex) + 1);
                 customer.setCountyId((cboCounty.SelectedIndex) + 1);

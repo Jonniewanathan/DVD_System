@@ -84,5 +84,12 @@ namespace DVDRentalsSystem
             dvdReturn.Show();
             this.Hide();
         }
+
+        private void listCustomerRentalsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomerRentals customerRentals = new frmCustomerRentals(this);
+            customerRentals.Show();
+            this.Hide();
+        }
     }
 }

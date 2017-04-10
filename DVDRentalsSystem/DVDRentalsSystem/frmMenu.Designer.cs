@@ -41,8 +41,8 @@
             this.removeCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentalAdmistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDVDRental = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblName = new System.Windows.Forms.Label();
             this.returnDVDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblName = new System.Windows.Forms.Label();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +127,7 @@
             this.listCustomerRentalsToolStripMenuItem.Name = "listCustomerRentalsToolStripMenuItem";
             this.listCustomerRentalsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.listCustomerRentalsToolStripMenuItem.Text = "List Customer Rentals";
+            this.listCustomerRentalsToolStripMenuItem.Click += new System.EventHandler(this.listCustomerRentalsToolStripMenuItem_Click);
             // 
             // removeCustomerToolStripMenuItem
             // 
@@ -147,9 +148,16 @@
             // mnuDVDRental
             // 
             this.mnuDVDRental.Name = "mnuDVDRental";
-            this.mnuDVDRental.Size = new System.Drawing.Size(152, 22);
+            this.mnuDVDRental.Size = new System.Drawing.Size(135, 22);
             this.mnuDVDRental.Text = "Rent DVDs";
             this.mnuDVDRental.Click += new System.EventHandler(this.mnuDVDRental_Click);
+            // 
+            // returnDVDToolStripMenuItem
+            // 
+            this.returnDVDToolStripMenuItem.Name = "returnDVDToolStripMenuItem";
+            this.returnDVDToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.returnDVDToolStripMenuItem.Text = "Return DVD";
+            this.returnDVDToolStripMenuItem.Click += new System.EventHandler(this.returnDVDToolStripMenuItem_Click);
             // 
             // lblName
             // 
@@ -160,13 +168,6 @@
             this.lblName.Size = new System.Drawing.Size(133, 25);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "DVD System";
-            // 
-            // returnDVDToolStripMenuItem
-            // 
-            this.returnDVDToolStripMenuItem.Name = "returnDVDToolStripMenuItem";
-            this.returnDVDToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.returnDVDToolStripMenuItem.Text = "Return DVD";
-            this.returnDVDToolStripMenuItem.Click += new System.EventHandler(this.returnDVDToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

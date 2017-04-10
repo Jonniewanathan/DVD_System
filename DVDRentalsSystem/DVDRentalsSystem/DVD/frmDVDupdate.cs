@@ -101,7 +101,7 @@ namespace DVDRentalsSystem
             {
                 DVDs DVD = new DVDs();
 
-                DVD.setTitle(txtTitle.Text);
+                DVD.setTitle(txtTitle.Text.ToUpper());
                 DVD.setAgeRatingId((cboAgeRating.SelectedIndex)+1);
                 DVD.setGenreId((cboGenre.SelectedIndex)+1);
                 DVD.setPriceCatagoryId((cboPriceCatagory.SelectedIndex)+1);

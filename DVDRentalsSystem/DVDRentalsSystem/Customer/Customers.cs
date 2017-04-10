@@ -167,6 +167,31 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        public static DataSet getCustomerRentals(int CustomerId)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            //connect to the database
+            conn.Open();
+
+            //define sql query
+            string strSql = "Select D.Title,R.DateFrom,RI.DateReturned,R.Cost FROM DVDs D,Rentals R, RentalsItems RI WHERE R.CUSTOMERID = " + CustomerId + " AND R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID";
+
+            //execute the query
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+
+            //get the data onto the form
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            //uses a data adapter to fill the dataset
+            da.Fill(ds, "ss");
+
+            //close the database
+            conn.Close();
+
+            return ds;
+        }
+
         public static DataSet getCustomers(string surname)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
