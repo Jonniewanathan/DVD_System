@@ -284,6 +284,36 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        public static DataSet getDVDAnalysis()
+        {
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            //connect to the database
+            conn.Open();
+
+            //define sql query
+            string strSql = "SELECT D.TITLE,COUNT(RI.DVDID) AS NUMBER_OF_RENTALS,ROUND(AVG(TO_NUMBER(R.DATEDUE - R.DATEFROM)),2) AS AVG_NUMBER_OF_DAYS,SUM((RA.PRICE*TO_NUMBER(R.DATEDUE - R.DATEFROM))) AS TOTAL_COST " + 
+                            "FROM RENTALS R,DVDS D, RENTALSITEMS RI,RATE RA " +
+                            "WHERE R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID " +
+                            "GROUP by D.TITLE";
+
+            //execute the query
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+
+            //Read the return data from the query
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            //uses a data adapter to fill the dataset
+            da.Fill(ds, "ss");
+
+            //close the database
+            conn.Close();
+
+            return ds;
+        }
+
         public static DataSet getPriceCatagorys()
         {
 

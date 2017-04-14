@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVDRentalsSystem.DVD;
 
 namespace DVDRentalsSystem
 {
@@ -89,6 +90,13 @@ namespace DVDRentalsSystem
         {
             frmCustomerRentals customerRentals = new frmCustomerRentals(this);
             customerRentals.Show();
+            this.Hide();
+        }
+
+        private void analysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDVDAnalysis dvdAnalysis = new frmDVDAnalysis(this);
+            dvdAnalysis.Show();
             this.Hide();
         }
     }
