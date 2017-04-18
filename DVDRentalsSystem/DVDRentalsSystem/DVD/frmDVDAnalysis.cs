@@ -40,5 +40,10 @@ namespace DVDRentalsSystem.DVD
         {
             grdDVDAnalysis.DataSource = DVDs.getDVDAnalysis().Tables["ss"];
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -79,6 +79,7 @@
             this.btnPrint.TabIndex = 58;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // frmDVDAnalysis
             // 
@@ -89,7 +90,7 @@
             this.Controls.Add(this.grdDVDAnalysis);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmDVDAnalysis";
-            this.Text = "frmDVDAnalysis";
+            this.Text = "DVD Analysis";
             this.Load += new System.EventHandler(this.frmDVDAnalysis_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

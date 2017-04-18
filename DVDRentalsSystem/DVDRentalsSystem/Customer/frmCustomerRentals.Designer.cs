@@ -396,7 +396,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.grdCustomers);
             this.Name = "frmCustomerRentals";
-            this.Text = "frmCustomerRentals";
+            this.Text = "List Customer Rentals";
             this.Load += new System.EventHandler(this.frmCustomerRentals_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
