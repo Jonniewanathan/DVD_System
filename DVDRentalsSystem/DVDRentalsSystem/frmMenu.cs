@@ -99,5 +99,12 @@ namespace DVDRentalsSystem
             dvdAnalysis.Show();
             this.Hide();
         }
+
+        private void rentalListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRentalsList rentalsList = new frmRentalsList(this);
+            rentalsList.Show();
+            this.Hide();
+        }
     }
 }

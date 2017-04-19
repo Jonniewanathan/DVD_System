@@ -275,6 +275,34 @@ namespace DVDRentalsSystem {
             return ds;
         }
 
+        public static DataSet getDailyRentalsList(string date)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            //connect to the database
+            conn.Open();
+
+            //define sql query
+            string strSql = "Select D.Title,C.FORENAME,C.SURNAME,R.DateFrom,RI.DateReturned,SUM((RA.PRICE*TO_NUMBER(R.DATEDUE - R.DATEFROM)))AS Cost_Of_DVD_Rental " + 
+                            "FROM RENTALS R,DVDS D, RENTALSITEMS RI,RATE RA, CUSTOMER C " + 
+                            "WHERE R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID AND C.CUSTOMERID = R.CUSTOMERID AND R.DATEFROM = '" + date + "' " +
+                            "GROUP by D.Title, R.DateFrom, RI.DateReturned, C.FORENAME, C.SURNAME ";
+
+            //execute the query
+            OracleCommand cmd = new OracleCommand(strSql, conn);
+
+            //get the data onto the form
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            //uses a data adapter to fill the dataset
+            da.Fill(ds, "ss");
+
+            //close the database
+            conn.Close();
+
+            return ds;
+        }
+
         public int getRentalsId()
         {
             return rentalsId;

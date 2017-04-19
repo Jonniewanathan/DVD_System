@@ -284,7 +284,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
-        public static DataSet getDVDAnalysis()
+        public static DataSet getDVDAnalysis(string dateFrom, string dateTo)
         {
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -294,7 +294,7 @@ namespace DVDRentalsSystem
             //define sql query
             string strSql = "SELECT D.TITLE,COUNT(RI.DVDID) AS NUMBER_OF_RENTALS,ROUND(AVG(TO_NUMBER(R.DATEDUE - R.DATEFROM)),2) AS AVG_NUMBER_OF_DAYS,SUM((RA.PRICE*TO_NUMBER(R.DATEDUE - R.DATEFROM))) AS TOTAL_COST " + 
                             "FROM RENTALS R,DVDS D, RENTALSITEMS RI,RATE RA " +
-                            "WHERE R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID " +
+                            "WHERE R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID AND R.DATEFROM BETWEEN '" + dateFrom + "' AND '"+ dateTo + "' " +
                             "GROUP by D.TITLE";
 
             //execute the query

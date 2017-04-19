@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVDRentalsSystem.DVD
+namespace DVDRentalsSystem
 {
-    public partial class frmDVDAnalysis : Form
+    public partial class frmRentalsList : Form
     {
         private frmMenu menu;
         private ClsPrint print;
 
-        public frmDVDAnalysis()
+        public frmRentalsList()
         {
             InitializeComponent();
         }
 
-        public frmDVDAnalysis(frmMenu Menu)
+        public frmRentalsList(frmMenu Menu)
         {
             InitializeComponent();
             this.menu = Menu;
@@ -37,17 +37,16 @@ namespace DVDRentalsSystem.DVD
             menu.Show();
         }
 
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            string date = String.Format("{0:dd-MMM-yy}", dtpDate.Value);
+
+            grdRentalsList.DataSource = Rentals.getDailyRentalsList(date).Tables["ss"];
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             print.PrintForm();
-        }
-
-        private void btnGetData_Click(object sender, EventArgs e)
-        {
-            string dateFrom = String.Format("{0:dd-MMM-yy}", dtpDateFrom.Value);
-            string dateTo = String.Format("{0:dd-MMM-yy}", dtpDateTo.Value);
-
-            grdDVDAnalysis.DataSource = DVDs.getDVDAnalysis(dateFrom,dateTo).Tables["ss"];
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
@@ -55,9 +54,9 @@ namespace DVDRentalsSystem.DVD
             print.printPreview();
         }
 
-        private void frmDVDAnalysis_Load(object sender, EventArgs e)
+        private void frmRentalsList_Load(object sender, EventArgs e)
         {
-            print = new ClsPrint(grdDVDAnalysis, "DVD Analysis");
+            print = new ClsPrint(grdRentalsList,"Daily Rental List");
         }
     }
 }
