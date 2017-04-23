@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,8 @@ namespace DVDRentalsSystem
         private PrintDocument _printDocument = new PrintDocument();
         private DataGridView gw = new DataGridView();
         private string _ReportHeader;
+        private string _details;
+        private Boolean printDetails = false;
 
         #endregion
 
@@ -33,6 +36,17 @@ namespace DVDRentalsSystem
         {
             _printDocument.PrintPage += new PrintPageEventHandler(_printDocument_PrintPage);
             _printDocument.BeginPrint += new PrintEventHandler(_printDocument_BeginPrint);
+            gw = gridview;
+            printDetails = false;
+            _ReportHeader = ReportHeader;
+        }
+
+        public ClsPrint(DataGridView gridview, string ReportHeader, string details)
+        {
+            _printDocument.PrintPage += new PrintPageEventHandler(_printDocument_PrintPage);
+            _printDocument.BeginPrint += new PrintEventHandler(_printDocument_BeginPrint);
+            _details = details;
+            printDetails = true;
             gw = gridview;
             _ReportHeader = ReportHeader;
         }
@@ -77,6 +91,8 @@ namespace DVDRentalsSystem
             //For the first page to print set the cell width and header height
             if (bFirstPage)
             {
+                
+
                 foreach (DataGridViewColumn GridCol in gw.Columns)
                 {
                     iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
@@ -112,6 +128,16 @@ namespace DVDRentalsSystem
 
                     if (bNewPage)
                     {
+                        if (printDetails)
+                        {
+                            e.Graphics.DrawString(_details,
+                            new Font(gw.Font, FontStyle.Bold),
+                            Brushes.Black, e.MarginBounds.Right - 80,
+                            e.MarginBounds.Top - e.Graphics.MeasureString(_details,
+                            new Font(gw.Font, FontStyle.Bold),
+                            e.MarginBounds.Width).Height + 80);
+                        }
+
                         //Draw Header
                         e.Graphics.DrawString(_ReportHeader,
                             new Font(gw.Font, FontStyle.Bold),
@@ -134,6 +160,10 @@ namespace DVDRentalsSystem
 
                         //Draw Columns                 
                         iTopMargin = e.MarginBounds.Top;
+                        if (bFirstPage && printDetails)
+                        {
+                            iTopMargin += 100;
+                        }
                         DataGridViewColumn[] _GridCol = new DataGridViewColumn[gw.Columns.Count];
                         int colcount = 0;
                         //Convert ltr to rtl

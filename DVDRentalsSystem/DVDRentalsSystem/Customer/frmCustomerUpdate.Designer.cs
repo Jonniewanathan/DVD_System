@@ -386,7 +386,7 @@
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.txtForename);
             this.Name = "frmCustomerUpdate";
-            this.Text = "frmCustomerUpdate";
+            this.Text = "Update Customer";
             this.Load += new System.EventHandler(this.frmCustomerUpdate_Load);
             this.grpAddress.ResumeLayout(false);
             this.grpAddress.PerformLayout();

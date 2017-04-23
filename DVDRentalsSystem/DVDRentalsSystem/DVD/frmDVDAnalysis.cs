@@ -46,8 +46,17 @@ namespace DVDRentalsSystem.DVD
         {
             string dateFrom = String.Format("{0:dd-MMM-yy}", dtpDateFrom.Value);
             string dateTo = String.Format("{0:dd-MMM-yy}", dtpDateTo.Value);
-
-            grdDVDAnalysis.DataSource = DVDs.getDVDAnalysis(dateFrom,dateTo).Tables["ss"];
+            DataSet dvdSet = DVDs.getDVDAnalysis(dateFrom,dateTo);
+            if (dvdSet.Tables[0].Rows.Count != 0)
+            {
+                grdDVDAnalysis.DataSource = dvdSet.Tables["ss"];
+            }
+            else
+            {
+                MessageBox.Show("Nothing to show from those Dates", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)

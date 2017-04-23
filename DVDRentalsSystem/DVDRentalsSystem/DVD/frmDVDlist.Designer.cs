@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDVDList)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(299, 469);
+            this.btnPrint.Location = new System.Drawing.Point(200, 469);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 17;
@@ -131,11 +132,22 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(299, 469);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(79, 23);
+            this.btnPrintPreview.TabIndex = 18;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            // 
             // frmDVDlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 504);
+            this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -167,5 +179,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPrintPreview;
     }
 }

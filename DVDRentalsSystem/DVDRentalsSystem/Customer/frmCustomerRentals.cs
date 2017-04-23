@@ -13,6 +13,7 @@ namespace DVDRentalsSystem
     public partial class frmCustomerRentals : Form
     {
         private frmMenu menu;
+        private ClsPrint print;
 
         public frmCustomerRentals()
         {
@@ -23,11 +24,6 @@ namespace DVDRentalsSystem
         {
             InitializeComponent();
             this.menu = Menu;
-        }
-
-        private void frmCustomerRentals_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -67,7 +63,34 @@ namespace DVDRentalsSystem
 
             grdCustomerInfo.DataSource = Customers.getCustomerRentals(customerId).Tables["ss"];
 
+            string details = "Title: " + cboTitle.Text +
+                             "\nSurname: " + txtSurname.Text +
+                             "\nForename: " + txtForename.Text +
+                             "\nDOB: " + String.Format("{0:dd-MMM-yy}", dtpDOB.Value) +
+                             "\nEmail: " + txtEmail.Text +
+                             "\nPhone: " + txtPhone.Text +
+                             "\n\nAddress1: " + txtAddress1.Text +
+                             "\nAddress2: " + txtAddress2.Text +
+                             "\nTown: " + txtTown.Text +
+                             "\nCounty: " + cboCounty.Text +
+                             "\nCountry: " + cboCountry.Text;
 
+            print = new ClsPrint(grdCustomerInfo,"Customer Rentals",details);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            print.PrintForm();
+        }
+
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            print.printPreview();
+        }
+
+        private void frmCustomerRentals_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

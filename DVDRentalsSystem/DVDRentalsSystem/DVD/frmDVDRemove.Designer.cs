@@ -151,6 +151,7 @@
             // 
             // cboPriceCatagory
             // 
+            this.cboPriceCatagory.Enabled = false;
             this.cboPriceCatagory.FormattingEnabled = true;
             this.cboPriceCatagory.Location = new System.Drawing.Point(99, 141);
             this.cboPriceCatagory.Name = "cboPriceCatagory";
@@ -168,6 +169,7 @@
             // 
             // cboAgeRating
             // 
+            this.cboAgeRating.Enabled = false;
             this.cboAgeRating.FormattingEnabled = true;
             this.cboAgeRating.Location = new System.Drawing.Point(99, 109);
             this.cboAgeRating.Name = "cboAgeRating";
@@ -185,6 +187,7 @@
             // 
             // cboGenre
             // 
+            this.cboGenre.Enabled = false;
             this.cboGenre.FormattingEnabled = true;
             this.cboGenre.Location = new System.Drawing.Point(99, 80);
             this.cboGenre.Name = "cboGenre";
@@ -228,7 +231,7 @@
             this.Controls.Add(this.grpDVDUpdate);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmDVDRemove";
-            this.Text = "frmDVDRemove";
+            this.Text = "Remove DVD";
             this.Load += new System.EventHandler(this.frmDVDRemove_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

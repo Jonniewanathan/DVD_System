@@ -174,12 +174,14 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            //string strSql = "Select D.Title,R.DateFrom,RI.DateReturned,R.Cost FROM DVDs D,Rentals R, RentalsItems RI WHERE R.CUSTOMERID = " + CustomerId + " AND R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID";
 
-            string strSql = "Select D.Title,R.DateFrom,RI.DateReturned,SUM((RA.PRICE*TO_NUMBER(R.DATEDUE - R.DATEFROM)))AS Cost_Of_DVD_Rental " + 
-                            "FROM RENTALS R,DVDS D, RENTALSITEMS RI,RATE RA " +
-                            "WHERE R.CUSTOMERID = " + CustomerId + " AND R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID " +
-                            "GROUP by D.Title, R.DateFrom, RI.DateReturned";
+            string strSql = "Select D.Title,C.FORENAME,C.SURNAME,R.DateFrom,RI.DateReturned,SUM((RA.PRICE*TO_NUMBER(R.DATEDUE - R.DATEFROM)))AS Cost_Of_DVD_Rental, " +  
+                            "CASE WHEN (RI.DATERETURNED - R.DATEDUE) < 0 THEN 0 " + 
+                            "ELSE SUM((RA.PRICE * TO_NUMBER(RI.DATERETURNED - R.DATEDUE))) " + 
+                            "END AS Amount_Overdue " + 
+                            "FROM RENTALS R, DVDS D, RENTALSITEMS RI, RATE RA, CUSTOMER C " +
+                            "WHERE R.RENTALSID = RI.RENTALSID AND D.DVDID = RI.DVDID AND RA.RATEID = D.RATEID AND C.CUSTOMERID = R.CUSTOMERID AND R.DATEFROM = '10-APR-17' " +
+                            "GROUP by D.Title, R.DateFrom, RI.DateReturned, R.DATEDUE, C.FORENAME, C.SURNAME ";
 
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);

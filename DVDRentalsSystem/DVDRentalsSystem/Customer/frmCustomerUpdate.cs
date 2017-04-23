@@ -89,8 +89,12 @@ namespace DVDRentalsSystem
 
             int age = today.Year - dateOfBirth.Year;
 
-
-            if (Validation.hasDigits(txtSurname.Text))
+            if (txtCustomerId.Text == "0000")
+            {
+                MessageBox.Show("Please select a customer to update", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (Validation.hasDigits(txtSurname.Text))
             {
                 MessageBox.Show("Surname has Digits in it\n\nPlease Re-enter", "Validation",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,6 +104,13 @@ namespace DVDRentalsSystem
             else if (Validation.textIsEmpty(txtSurname.Text))
             {
                 MessageBox.Show("Surname field is empty \n\nPlease enter a surname", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtSurname.Focus();
+            }
+            else if (Validation.textIsEmpty(txtForename.Text))
+            {
+                MessageBox.Show("Forename field is empty \n\nPlease enter a forename", "Validation",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtSurname.Focus();
@@ -125,26 +136,19 @@ namespace DVDRentalsSystem
 
                 txtEmail.Focus();
             }
+            else if (Validation.textIsEmpty(txtPhone.Text))
+            {
+                MessageBox.Show("Phone no. field is empty\n\nPlease enter a Phone Number", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtAddress1.Focus();
+            }
             else if (!Validation.allDigits(txtPhone.Text))
             {
                 MessageBox.Show("Phone has to be all Digits in it\n\nPlease Re-enter", "Validation",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtPhone.Focus();
-            }
-            else if (Validation.textIsEmpty(txtTown.Text))
-            {
-                MessageBox.Show("Town field is empty \n\nPlease enter a Town", "Validation",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                txtTown.Focus();
-            }
-            else if (Validation.hasDigits(txtTown.Text))
-            {
-                MessageBox.Show("Town has Digits in it\n\nPlease Re-enter", "Validation",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                txtTown.Focus();
             }
             else if (Validation.textIsEmpty(txtAddress1.Text))
             {
@@ -160,12 +164,26 @@ namespace DVDRentalsSystem
 
                 txtAddress1.Focus();
             }
+            else if (Validation.textIsEmpty(txtTown.Text))
+            {
+                MessageBox.Show("Town field is empty \n\nPlease enter a Town", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtTown.Focus();
+            }
+            else if (Validation.hasDigits(txtTown.Text))
+            {
+                MessageBox.Show("Town has Digits in it\n\nPlease Re-enter", "Validation",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtTown.Focus();
+            }
             else
             {
                 customer.setAddress1(txtAddress1.Text.ToUpper());
                 customer.setAddress2(txtAddress2.Text.ToUpper());
                 customer.setCustomerId(Convert.ToInt32(txtCustomerId.Text));
-                customer.setEmail(txtEmail.Text.ToUpper());
+                customer.setEmail(txtEmail.Text.ToLower());
                 customer.setSurname(txtSurname.Text.ToUpper());
                 customer.setForename(txtForename.Text.ToUpper());
                 customer.setTitleId((cboTitle.SelectedIndex) + 1);

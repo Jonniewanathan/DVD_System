@@ -59,7 +59,7 @@ namespace DVDRentalsSystem
             conn.Open();
 
             //define sql query
-            string strSql = "SELECT D.DVDID ,D.TITLE ,A.AGERATING ,G.GENRE ,R.Description AS " + "PriceCatagory" + " ,D.STATUS, D.AGERATINGID, D.GENREID, D.RATEID FROM DVDs D, AgeRating A,Genre G, Rate R  WHERE D.Title like '%" + title + "%' AND Status != 'R' AND A.AgeRatingId = D.AgeRatingId AND D.GenreId = G.GenreId AND D.RateId = R.RateId ";
+            string strSql = "SELECT D.DVDID ,D.TITLE ,A.AGERATING ,G.GENRE ,R.Description AS " + "PriceCatagory" + " ,D.STATUS, D.AGERATINGID, D.GENREID, D.RATEID FROM DVDs D, AgeRating A,Genre G, Rate R  WHERE D.Title like '%" + title + "%' AND Status != 'R' AND Status != 'U' AND A.AgeRatingId = D.AgeRatingId AND D.GenreId = G.GenreId AND D.RateId = R.RateId ";
             
             //execute the query
             OracleCommand cmd = new OracleCommand(strSql, conn);

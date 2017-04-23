@@ -13,6 +13,7 @@ namespace DVDRentalsSystem
     public partial class frmDVDlist : Form
     {
         frmMenu menu;
+        private ClsPrint print;
 
         public frmDVDlist()
         {
@@ -38,7 +39,9 @@ namespace DVDRentalsSystem
             //Adding fields to the OrderBy combobox
             cboOrderBy.Items.Add("DVD ID");
             cboOrderBy.Items.Add("Title");
-            
+
+            print = new ClsPrint(grdDVDList, "DVD List");
+
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -91,12 +94,17 @@ namespace DVDRentalsSystem
             }
 
             grdDVDList.DataSource = DVDs.getDVDs(orderBy, filterBy).Tables["ss"];
+            print = new ClsPrint(grdDVDList,"DVD List");
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            
+            print.PrintForm();
         }
 
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            print.printPreview();
+        }
     }
 }

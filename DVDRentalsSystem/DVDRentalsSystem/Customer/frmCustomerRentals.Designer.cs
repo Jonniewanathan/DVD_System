@@ -61,6 +61,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.txtForename = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomerInfo)).BeginInit();
@@ -81,7 +83,7 @@
             this.mnuExit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(655, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 24);
             this.menuStrip1.TabIndex = 55;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,7 +125,7 @@
             this.grdCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomers.Location = new System.Drawing.Point(11, 76);
             this.grdCustomers.Name = "grdCustomers";
-            this.grdCustomers.Size = new System.Drawing.Size(632, 157);
+            this.grdCustomers.Size = new System.Drawing.Size(740, 157);
             this.grdCustomers.TabIndex = 70;
             this.grdCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomers_CellContentClick);
             // 
@@ -132,13 +134,13 @@
             this.grdCustomerInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomerInfo.Location = new System.Drawing.Point(11, 443);
             this.grdCustomerInfo.Name = "grdCustomerInfo";
-            this.grdCustomerInfo.Size = new System.Drawing.Size(631, 164);
+            this.grdCustomerInfo.Size = new System.Drawing.Size(740, 164);
             this.grdCustomerInfo.TabIndex = 74;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 253);
+            this.label3.Location = new System.Drawing.Point(70, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 89;
@@ -148,7 +150,7 @@
             // 
             this.cboTitle.Enabled = false;
             this.cboTitle.FormattingEnabled = true;
-            this.cboTitle.Location = new System.Drawing.Point(79, 281);
+            this.cboTitle.Location = new System.Drawing.Point(135, 281);
             this.cboTitle.Name = "cboTitle";
             this.cboTitle.Size = new System.Drawing.Size(42, 21);
             this.cboTitle.TabIndex = 87;
@@ -156,7 +158,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(14, 289);
+            this.label13.Location = new System.Drawing.Point(70, 289);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(27, 13);
             this.label13.TabIndex = 86;
@@ -165,7 +167,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 420);
+            this.label11.Location = new System.Drawing.Point(70, 420);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 85;
@@ -173,7 +175,7 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(79, 413);
+            this.txtPhone.Location = new System.Drawing.Point(135, 413);
             this.txtPhone.MaxLength = 14;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
@@ -183,7 +185,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(14, 393);
+            this.label10.Location = new System.Drawing.Point(70, 393);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 83;
@@ -191,7 +193,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(79, 386);
+            this.txtEmail.Location = new System.Drawing.Point(135, 386);
             this.txtEmail.MaxLength = 40;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
@@ -211,7 +213,7 @@
             this.grpAddress.Controls.Add(this.txtAddress2);
             this.grpAddress.Controls.Add(this.label4);
             this.grpAddress.Controls.Add(this.label6);
-            this.grpAddress.Location = new System.Drawing.Point(297, 253);
+            this.grpAddress.Location = new System.Drawing.Point(353, 253);
             this.grpAddress.Name = "grpAddress";
             this.grpAddress.Size = new System.Drawing.Size(347, 184);
             this.grpAddress.TabIndex = 81;
@@ -311,7 +313,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 315);
+            this.label1.Location = new System.Drawing.Point(70, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 75;
@@ -319,7 +321,7 @@
             // 
             // txtCustomerId
             // 
-            this.txtCustomerId.Location = new System.Drawing.Point(79, 246);
+            this.txtCustomerId.Location = new System.Drawing.Point(135, 246);
             this.txtCustomerId.Name = "txtCustomerId";
             this.txtCustomerId.ReadOnly = true;
             this.txtCustomerId.Size = new System.Drawing.Size(61, 20);
@@ -328,7 +330,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 342);
+            this.label2.Location = new System.Drawing.Point(70, 342);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 76;
@@ -336,7 +338,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(79, 308);
+            this.txtSurname.Location = new System.Drawing.Point(135, 308);
             this.txtSurname.MaxLength = 25;
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.ReadOnly = true;
@@ -346,7 +348,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 366);
+            this.label5.Location = new System.Drawing.Point(70, 366);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 80;
@@ -355,25 +357,47 @@
             // dtpDOB
             // 
             this.dtpDOB.Enabled = false;
-            this.dtpDOB.Location = new System.Drawing.Point(79, 360);
+            this.dtpDOB.Location = new System.Drawing.Point(135, 360);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(200, 20);
             this.dtpDOB.TabIndex = 79;
             // 
             // txtForename
             // 
-            this.txtForename.Location = new System.Drawing.Point(79, 334);
+            this.txtForename.Location = new System.Drawing.Point(135, 334);
             this.txtForename.MaxLength = 20;
             this.txtForename.Name = "txtForename";
             this.txtForename.ReadOnly = true;
             this.txtForename.Size = new System.Drawing.Size(200, 20);
             this.txtForename.TabIndex = 78;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(289, 620);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 91;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(396, 620);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(78, 23);
+            this.btnPrintPreview.TabIndex = 92;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            // 
             // frmCustomerRentals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 651);
+            this.ClientSize = new System.Drawing.Size(764, 655);
+            this.Controls.Add(this.btnPrintPreview);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboTitle);
             this.Controls.Add(this.label13);
@@ -444,5 +468,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.TextBox txtForename;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPrintPreview;
     }
 }
