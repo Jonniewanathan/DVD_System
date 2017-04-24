@@ -21,6 +21,7 @@ namespace DVDRentalsSystem
         private decimal totalPrice;
         private frmMenu menu;
         private Boolean searchClick = false;
+        private decimal price;
 
         public frmDVDRental()
         {
@@ -105,6 +106,8 @@ namespace DVDRentalsSystem
                 cboNumOfDays.Items.Add(i);
             }
 
+            cboNumOfDays.SelectedIndex = 0;
+
             grdDVDBasket.Columns.Add("columnTitle", "Title");
             grdDVDBasket.Columns.Add("columnPrice", "Price");
 
@@ -128,6 +131,7 @@ namespace DVDRentalsSystem
             cboAgeRating.SelectedIndex = -1;
             cboGenre.SelectedIndex = -1;
             cboPriceCatagory.SelectedIndex = -1;
+            cboNumOfDays.SelectedIndex = 0;
         }
 
         private void btnAddToBasket_Click(object sender, EventArgs e)
@@ -141,9 +145,7 @@ namespace DVDRentalsSystem
                    
                     int number = Convert.ToInt16(txtDVDId.Text);
 
-                    
-
-                    decimal price = Rentals.getPrice((cboPriceCatagory.SelectedIndex) + 1);
+                    price = Rentals.getPrice((cboPriceCatagory.SelectedIndex) + 1);
                     DataGridViewRow row = (DataGridViewRow)grdDVDBasket.Rows[0].Clone();
                     row.Cells[0].Value = txtTitle.Text;
                     row.Cells[1].Value = Math.Round(price, 2, MidpointRounding.ToEven);
@@ -151,7 +153,8 @@ namespace DVDRentalsSystem
 
                     grdDVDBasket.Rows.Add(row);
                     totalPrice += price;
-                    txtTotalPrice.Text = totalPrice.ToString("00.00");
+                    int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
+                    txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
                     clearData();
                 }
                 else
@@ -197,7 +200,11 @@ namespace DVDRentalsSystem
 
             for (int i = 0; i < dvdArrayList.Count; i++)
             {
-                result = dvdArrayList.IndexOf(i) == dvdid;
+                if (dvdArrayList.Contains(dvdid))
+                {
+                    return true;
+                }
+                
             }
 
             return result;
@@ -206,8 +213,7 @@ namespace DVDRentalsSystem
         private void cboNumOfDays_SelectedIndexChanged(object sender, EventArgs e)
         {
             int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
-            totalPrice = totalPrice * numOfDays;
-            txtTotalPrice.Text = totalPrice.ToString();
+            txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
         }
     }
 }

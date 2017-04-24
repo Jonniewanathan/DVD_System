@@ -390,7 +390,7 @@
             this.Controls.Add(this.txtForename);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmCustomerRemove";
-            this.Text = "frmCustomerRemove";
+            this.Text = "Remove Customer";
             this.Load += new System.EventHandler(this.frmCustomerRemove_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

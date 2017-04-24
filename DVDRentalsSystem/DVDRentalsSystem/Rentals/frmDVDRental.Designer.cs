@@ -340,7 +340,7 @@
             this.Controls.Add(this.grdCustomers);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmDVDRental";
-            this.Text = "frmDVDRental";
+            this.Text = "Rent DVDs";
             this.Load += new System.EventHandler(this.frmDVDRental_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
