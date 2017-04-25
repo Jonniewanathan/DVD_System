@@ -128,6 +128,7 @@ namespace DVDRentalsSystem
             txtSearchCustomer.Text = "";
             txtDVDId.Text = "";
             txtTitle.Text = "";
+            txtTotalPrice.Text = "";
             cboAgeRating.SelectedIndex = -1;
             cboGenre.SelectedIndex = -1;
             cboPriceCatagory.SelectedIndex = -1;
@@ -192,6 +193,7 @@ namespace DVDRentalsSystem
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             grdDVDBasket.Rows.Clear();
+            clearData();
         }
 
         public Boolean linearSearch(int dvdid)
