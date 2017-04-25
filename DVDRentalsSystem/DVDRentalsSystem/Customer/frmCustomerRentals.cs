@@ -46,7 +46,7 @@ namespace DVDRentalsSystem
         {
             DataGridViewRow row = this.grdCustomers.Rows[e.RowIndex];
 
-            int customerId = Convert.ToInt32(row.Cells[0].Value);
+            int customerId = Convert.ToInt16(row.Cells[0].Value);
 
             txtCustomerId.Text = customerId.ToString("0000").Trim();
             cboTitle.Text = row.Cells[1].Value.ToString().Trim();
