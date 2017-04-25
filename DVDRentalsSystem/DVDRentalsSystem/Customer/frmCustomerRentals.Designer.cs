@@ -131,6 +131,7 @@
             // 
             // grdCustomerInfo
             // 
+            this.grdCustomerInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdCustomerInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomerInfo.Location = new System.Drawing.Point(11, 443);
             this.grdCustomerInfo.Name = "grdCustomerInfo";
