@@ -57,42 +57,56 @@ namespace DVDRentalsSystem
             DataGridViewRow row = this.grdCustomers.Rows[e.RowIndex];
             
             customerID = Convert.ToInt32(row.Cells[0].Value);
+
+            txtCustomerID.Text = customerID.ToString("0000");
+            txtCustomerName.Text = row.Cells[2].Value.ToString().TrimEnd() + " " + row.Cells[3].Value.ToString().TrimEnd();
         }
 
         private void btnDVDidSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearchDVDId.Text == "" || txtSearchDVDId.Text == " ")
+            if (customerID != 0)
             {
-                MessageBox.Show("Please enter a valid DVDId", "Confirmation",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                searchClick = false;
-
-                txtSearchDVDId.Focus();
-            }
-            else
-            {
-                searchClick = true;
-
-                DataTable dt = DVDs.getDVD(Convert.ToInt16(txtSearchDVDId.Text)).Tables["ss"];
-
-                try
-                {
-                    DataRow drCurrent = dt.Rows[0];
-
-                    txtDVDId.Text = drCurrent["DVDId"].ToString();
-                    txtTitle.Text = drCurrent["Title"].ToString();
-                    cboGenre.SelectedIndex = (Convert.ToInt16(drCurrent["GenreId"]) - 1);
-                    cboAgeRating.SelectedIndex = (Convert.ToInt16(drCurrent["AgeRatingId"]) - 1);
-                    cboPriceCatagory.SelectedIndex = (Convert.ToInt16(drCurrent["RateId"]) - 1);
-                }
-                catch (IndexOutOfRangeException f)
+                if (txtSearchDVDId.Text == "" || txtSearchDVDId.Text == " ")
                 {
                     MessageBox.Show("Please enter a valid DVDId", "Confirmation",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    searchClick = false;
+
                     txtSearchDVDId.Focus();
-                } 
+                }
+                else
+                {
+                    searchClick = true;
+
+                    DataTable dt = DVDs.getDVD(Convert.ToInt16(txtSearchDVDId.Text)).Tables["ss"];
+
+                    try
+                    {
+                        DataRow drCurrent = dt.Rows[0];
+
+                        txtDVDId.Text = drCurrent["DVDId"].ToString();
+                        txtTitle.Text = drCurrent["Title"].ToString();
+                        cboGenre.SelectedIndex = (Convert.ToInt16(drCurrent["GenreId"]) - 1);
+                        cboAgeRating.SelectedIndex = (Convert.ToInt16(drCurrent["AgeRatingId"]) - 1);
+                        cboPriceCatagory.SelectedIndex = (Convert.ToInt16(drCurrent["RateId"]) - 1);
+                    }
+                    catch (IndexOutOfRangeException f)
+                    {
+                        MessageBox.Show("Please enter a valid DVDId", "Confirmation",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtSearchDVDId.Focus();
+                    }
+                }
             }
+            else
+            {
+                MessageBox.Show("Please select a Customer", "Confirmation",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSearchDVDId.Focus();
+            }
+
+            
 
             
         }
@@ -106,8 +120,8 @@ namespace DVDRentalsSystem
                 cboNumOfDays.Items.Add(i);
             }
 
-            cboNumOfDays.SelectedIndex = 0;
 
+            cboNumOfDays.SelectedIndex = 0;
             grdDVDBasket.Columns.Add("columnTitle", "Title");
             grdDVDBasket.Columns.Add("columnPrice", "Price");
 
@@ -128,11 +142,9 @@ namespace DVDRentalsSystem
             txtSearchCustomer.Text = "";
             txtDVDId.Text = "";
             txtTitle.Text = "";
-            txtTotalPrice.Text = "";
             cboAgeRating.SelectedIndex = -1;
             cboGenre.SelectedIndex = -1;
             cboPriceCatagory.SelectedIndex = -1;
-            cboNumOfDays.SelectedIndex = 0;
         }
 
         private void btnAddToBasket_Click(object sender, EventArgs e)
@@ -155,6 +167,7 @@ namespace DVDRentalsSystem
                     grdDVDBasket.Rows.Add(row);
                     totalPrice += price;
                     int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
+
                     txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
                     clearData();
                 }
@@ -175,25 +188,35 @@ namespace DVDRentalsSystem
 
         private void btnRent_Click(object sender, EventArgs e)
         {
-            Rentals rental = new Rentals();
-            DateTime today = DateTime.Now;
-            DateTime dueDate = today.AddDays(Convert.ToInt16(cboNumOfDays.Text));
-            string todayDate = String.Format("{0:dd-MMM-yy}", today);
-            string dueDateDate = String.Format("{0:dd-MMM-yy}", dueDate);
+            if (dvdArrayList.Count != 0)
+            {
+                Rentals rental = new Rentals();
+                DateTime today = DateTime.Now;
+                DateTime dueDate = today.AddDays(Convert.ToInt16(cboNumOfDays.Text));
+                string todayDate = String.Format("{0:dd-MMM-yy}", today);
+                string dueDateDate = String.Format("{0:dd-MMM-yy}", dueDate);
 
-            rental.setCost(totalPrice);
-            rental.setCustomerId(customerID);
-            rental.setDVDList(dvdArrayList);
-            rental.setDateFrom(todayDate);
-            rental.setDateDue(dueDateDate);
+                rental.setCost(totalPrice);
+                rental.setCustomerId(customerID);
+                rental.setDVDList(dvdArrayList);
+                rental.setDateFrom(todayDate);
+                rental.setDateDue(dueDateDate);
 
-            rental.rentDVD();
+                rental.rentDVD();
 
-            MessageBox.Show("DVDs have been Rented!", "Confirmation",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVDs have been Rented!", "Confirmation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            grdDVDBasket.Rows.Clear();
-            clearData();
+                grdDVDBasket.Rows.Clear();
+                cboNumOfDays.SelectedIndex = 0;
+                txtTotalPrice.Text = "";
+                clearData();
+            }
+            else
+            {
+                MessageBox.Show("No DVDs in basket please add a DVD", "Confirmation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public Boolean linearSearch(int dvdid)
@@ -216,6 +239,7 @@ namespace DVDRentalsSystem
         {
             int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
             txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
-        }
+        } 
+
     }
 }
