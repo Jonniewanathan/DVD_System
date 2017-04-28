@@ -60,6 +60,7 @@
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
             this.grpDVDUpdate.SuspendLayout();
@@ -355,11 +356,22 @@
             this.txtCustomerName.Size = new System.Drawing.Size(139, 20);
             this.txtCustomerName.TabIndex = 90;
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(856, 339);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 91;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // frmDVDRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 387);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCustomerID);
@@ -427,5 +439,6 @@
         private System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

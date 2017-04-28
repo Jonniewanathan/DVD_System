@@ -17,6 +17,7 @@ namespace DVDRentalsSystem
     {
         private int customerID;  
         private ArrayList dvdArrayList = new ArrayList();
+        private ArrayList prices = new ArrayList();
         private int[] dvdArray = new int[10];
         private decimal totalPrice;
         private frmMenu menu;
@@ -120,8 +121,8 @@ namespace DVDRentalsSystem
                 cboNumOfDays.Items.Add(i);
             }
 
-
             cboNumOfDays.SelectedIndex = 0;
+            grdDVDBasket.Columns.Add("columnDVDId", "DVDId");
             grdDVDBasket.Columns.Add("columnTitle", "Title");
             grdDVDBasket.Columns.Add("columnPrice", "Price");
 
@@ -160,15 +161,20 @@ namespace DVDRentalsSystem
 
                     price = Rentals.getPrice((cboPriceCatagory.SelectedIndex) + 1);
                     DataGridViewRow row = (DataGridViewRow)grdDVDBasket.Rows[0].Clone();
-                    row.Cells[0].Value = txtTitle.Text;
-                    row.Cells[1].Value = Math.Round(price, 2, MidpointRounding.ToEven);
+                    row.Cells[0].Value = txtDVDId.Text;
+                    row.Cells[1].Value = txtTitle.Text;
+                    row.Cells[2].Value = Math.Round(price, 2, MidpointRounding.ToEven);
                     dvdArrayList.Add(number);
 
                     grdDVDBasket.Rows.Add(row);
-                    totalPrice += price;
+                    prices.Add(price);
+
+
+                    //totalPrice += price;
                     int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
 
-                    txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
+                    //txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
+                    txtTotalPrice.Text = (totalPriceCalc(prices)*numOfDays).ToString("00.00");
                     clearData();
                 }
                 else
@@ -238,8 +244,36 @@ namespace DVDRentalsSystem
         private void cboNumOfDays_SelectedIndexChanged(object sender, EventArgs e)
         {
             int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
-            txtTotalPrice.Text = (totalPrice * numOfDays).ToString("00.00");
-        } 
+            txtTotalPrice.Text = (totalPriceCalc(prices) * numOfDays).ToString("00.00");
+        }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (grdDVDBasket.SelectedRows.Count > 0)
+            {
+                dvdArrayList.RemoveAt(grdDVDBasket.SelectedRows[0].Index);
+                prices.RemoveAt(grdDVDBasket.SelectedRows[0].Index);
+                grdDVDBasket.Rows.RemoveAt(grdDVDBasket.SelectedRows[0].Index);            
+            }
+            else
+            {
+                MessageBox.Show("Please select a Item in the basket to remove", "Confirmation",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            
+        }
+
+        private decimal totalPriceCalc(ArrayList prices)
+        {
+            decimal total = 0;
+
+            foreach (decimal price in prices)
+            {
+                total += price;
+            }
+
+            return total;
+        }
     }
 }
