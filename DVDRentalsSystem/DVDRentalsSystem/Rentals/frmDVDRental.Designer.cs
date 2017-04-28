@@ -97,7 +97,7 @@
             this.btnSearchCustomer.Location = new System.Drawing.Point(295, 27);
             this.btnSearchCustomer.Name = "btnSearchCustomer";
             this.btnSearchCustomer.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchCustomer.TabIndex = 72;
+            this.btnSearchCustomer.TabIndex = 2;
             this.btnSearchCustomer.Text = "Search";
             this.btnSearchCustomer.UseVisualStyleBackColor = true;
             this.btnSearchCustomer.Click += new System.EventHandler(this.btnSearchCustomer_Click);
@@ -107,7 +107,7 @@
             this.txtSearchCustomer.Location = new System.Drawing.Point(77, 31);
             this.txtSearchCustomer.Name = "txtSearchCustomer";
             this.txtSearchCustomer.Size = new System.Drawing.Size(200, 20);
-            this.txtSearchCustomer.TabIndex = 71;
+            this.txtSearchCustomer.TabIndex = 1;
             // 
             // label12
             // 
@@ -132,7 +132,7 @@
             this.btnDVDidSearch.Location = new System.Drawing.Point(656, 28);
             this.btnDVDidSearch.Name = "btnDVDidSearch";
             this.btnDVDidSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnDVDidSearch.TabIndex = 78;
+            this.btnDVDidSearch.TabIndex = 4;
             this.btnDVDidSearch.Text = "Search";
             this.btnDVDidSearch.UseVisualStyleBackColor = true;
             this.btnDVDidSearch.Click += new System.EventHandler(this.btnDVDidSearch_Click);
@@ -142,7 +142,7 @@
             this.txtSearchDVDId.Location = new System.Drawing.Point(546, 31);
             this.txtSearchDVDId.Name = "txtSearchDVDId";
             this.txtSearchDVDId.Size = new System.Drawing.Size(100, 20);
-            this.txtSearchDVDId.TabIndex = 77;
+            this.txtSearchDVDId.TabIndex = 3;
             // 
             // label1
             // 
@@ -195,7 +195,7 @@
             this.btnAddToBasket.Location = new System.Drawing.Point(99, 168);
             this.btnAddToBasket.Name = "btnAddToBasket";
             this.btnAddToBasket.Size = new System.Drawing.Size(75, 23);
-            this.btnAddToBasket.TabIndex = 7;
+            this.btnAddToBasket.TabIndex = 5;
             this.btnAddToBasket.Text = "Add";
             this.btnAddToBasket.UseVisualStyleBackColor = true;
             this.btnAddToBasket.Click += new System.EventHandler(this.btnAddToBasket_Click);
@@ -281,10 +281,10 @@
             // 
             // btnRent
             // 
-            this.btnRent.Location = new System.Drawing.Point(1141, 340);
+            this.btnRent.Location = new System.Drawing.Point(1106, 339);
             this.btnRent.Name = "btnRent";
             this.btnRent.Size = new System.Drawing.Size(75, 23);
-            this.btnRent.TabIndex = 82;
+            this.btnRent.TabIndex = 8;
             this.btnRent.Text = "Rent";
             this.btnRent.UseVisualStyleBackColor = true;
             this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
@@ -321,7 +321,7 @@
             this.cboNumOfDays.Location = new System.Drawing.Point(1060, 274);
             this.cboNumOfDays.Name = "cboNumOfDays";
             this.cboNumOfDays.Size = new System.Drawing.Size(121, 21);
-            this.cboNumOfDays.TabIndex = 86;
+            this.cboNumOfDays.TabIndex = 6;
             this.cboNumOfDays.SelectedIndexChanged += new System.EventHandler(this.cboNumOfDays_SelectedIndexChanged);
             // 
             // label8
@@ -337,6 +337,7 @@
             // 
             this.txtCustomerID.Location = new System.Drawing.Point(104, 279);
             this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.ReadOnly = true;
             this.txtCustomerID.Size = new System.Drawing.Size(100, 20);
             this.txtCustomerID.TabIndex = 88;
             // 
@@ -353,6 +354,7 @@
             // 
             this.txtCustomerName.Location = new System.Drawing.Point(104, 311);
             this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.ReadOnly = true;
             this.txtCustomerName.Size = new System.Drawing.Size(139, 20);
             this.txtCustomerName.TabIndex = 90;
             // 
@@ -361,7 +363,7 @@
             this.btnRemove.Location = new System.Drawing.Point(856, 339);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 91;
+            this.btnRemove.TabIndex = 7;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);

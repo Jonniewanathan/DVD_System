@@ -62,7 +62,7 @@
             this.txtTitle.MaxLength = 35;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(121, 20);
-            this.txtTitle.TabIndex = 1;
+            this.txtTitle.TabIndex = 2;
             // 
             // label1
             // 
@@ -98,7 +98,7 @@
             this.txtDVDId.Location = new System.Drawing.Point(99, 21);
             this.txtDVDId.Name = "txtDVDId";
             this.txtDVDId.Size = new System.Drawing.Size(121, 20);
-            this.txtDVDId.TabIndex = 10;
+            this.txtDVDId.TabIndex = 1;
             // 
             // label4
             // 
@@ -114,7 +114,7 @@
             this.btnRegister.Location = new System.Drawing.Point(99, 180);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 5;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -126,7 +126,7 @@
             this.cboPriceCatagory.Location = new System.Drawing.Point(99, 141);
             this.cboPriceCatagory.Name = "cboPriceCatagory";
             this.cboPriceCatagory.Size = new System.Drawing.Size(121, 21);
-            this.cboPriceCatagory.TabIndex = 4;
+            this.cboPriceCatagory.TabIndex = 5;
             // 
             // label3
             // 
@@ -144,7 +144,7 @@
             this.cboAgeRating.Location = new System.Drawing.Point(99, 109);
             this.cboAgeRating.Name = "cboAgeRating";
             this.cboAgeRating.Size = new System.Drawing.Size(121, 21);
-            this.cboAgeRating.TabIndex = 3;
+            this.cboAgeRating.TabIndex = 4;
             // 
             // label2
             // 
@@ -162,7 +162,7 @@
             this.cboGenre.Location = new System.Drawing.Point(99, 80);
             this.cboGenre.Name = "cboGenre";
             this.cboGenre.Size = new System.Drawing.Size(121, 21);
-            this.cboGenre.TabIndex = 2;
+            this.cboGenre.TabIndex = 3;
             // 
             // menuStrip1
             // 

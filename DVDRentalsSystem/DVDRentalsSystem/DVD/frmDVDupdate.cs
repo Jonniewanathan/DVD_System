@@ -47,6 +47,7 @@ namespace DVDRentalsSystem
 
         private void frmDVDupdate_Load(object sender, EventArgs e)
         {
+            //Populates the combo boxes
             cboGenre.ValueMember = "Genre";
             cboGenre.DataSource = DVDs.getGenreList().Tables["ss"];
 
@@ -56,6 +57,7 @@ namespace DVDRentalsSystem
             cboPriceCatagory.ValueMember = "Description";
             cboPriceCatagory.DataSource = DVDs.getPriceCatagorys().Tables["ss"];
 
+            //resets form elements
             clearData();
         }
 
@@ -117,6 +119,8 @@ namespace DVDRentalsSystem
             }
                         
         }
+
+        //resets form elements
         public void clearData()
         {
             txtSearch.Text = "";

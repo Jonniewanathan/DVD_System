@@ -99,7 +99,7 @@
             this.btnSearch.Location = new System.Drawing.Point(297, 36);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 73;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -118,7 +118,7 @@
             this.txtSearch.Location = new System.Drawing.Point(79, 40);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(200, 20);
-            this.txtSearch.TabIndex = 72;
+            this.txtSearch.TabIndex = 1;
             // 
             // grdCustomers
             // 
@@ -377,7 +377,7 @@
             this.btnPrint.Location = new System.Drawing.Point(289, 620);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 91;
+            this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -387,7 +387,7 @@
             this.btnPrintPreview.Location = new System.Drawing.Point(396, 620);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(78, 23);
-            this.btnPrintPreview.TabIndex = 92;
+            this.btnPrintPreview.TabIndex = 4;
             this.btnPrintPreview.Text = "Print Preview";
             this.btnPrintPreview.UseVisualStyleBackColor = true;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
@@ -422,7 +422,6 @@
             this.Controls.Add(this.grdCustomers);
             this.Name = "frmCustomerRentals";
             this.Text = "List Customer Rentals";
-            this.Load += new System.EventHandler(this.frmCustomerRentals_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).EndInit();

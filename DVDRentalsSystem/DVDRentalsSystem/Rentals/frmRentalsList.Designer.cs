@@ -80,7 +80,7 @@
             this.dtpDate.Location = new System.Drawing.Point(203, 37);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpDate.TabIndex = 14;
+            this.dtpDate.TabIndex = 1;
             // 
             // label1
             // 
@@ -96,7 +96,7 @@
             this.btnLoad.Location = new System.Drawing.Point(454, 34);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
-            this.btnLoad.TabIndex = 17;
+            this.btnLoad.TabIndex = 2;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -106,7 +106,7 @@
             this.btnPrint.Location = new System.Drawing.Point(290, 368);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 18;
+            this.btnPrint.TabIndex = 3;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -116,7 +116,7 @@
             this.btnPrintPreview.Location = new System.Drawing.Point(397, 368);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(79, 23);
-            this.btnPrintPreview.TabIndex = 19;
+            this.btnPrintPreview.TabIndex = 4;
             this.btnPrintPreview.Text = "Print Preview";
             this.btnPrintPreview.UseVisualStyleBackColor = true;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);

@@ -95,7 +95,7 @@ namespace DVDRentalsSystem
 
         private void frmDVDReg_Load(object sender, EventArgs e)
         {
-
+            //populates the combo boxes
             cboGenre.ValueMember = "Genre";
             cboGenre.DataSource = DVDs.getGenreList().Tables["ss"];
 
@@ -105,6 +105,7 @@ namespace DVDRentalsSystem
             cboPriceCatagory.ValueMember = "Description";
             cboPriceCatagory.DataSource = DVDs.getPriceCatagorys().Tables["ss"];
 
+            //sets from elements back default
             clearData();
 
             txtDVDId.Text = DVDs.nextDVDNo().ToString("0000");
@@ -120,6 +121,8 @@ namespace DVDRentalsSystem
             this.Close();
             menu.Show();
         }
+
+        //Sets the details back to defualt
         public void clearData()
         {
             txtDVDId.Text = "";

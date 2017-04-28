@@ -31,7 +31,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.grpDVDReturn = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.cboPriceCatagory = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboAgeRating = new System.Windows.Forms.ComboBox();
@@ -40,6 +39,7 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,16 +97,6 @@
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "DVDId";
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(361, 180);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnReturn.TabIndex = 8;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // cboPriceCatagory
             // 
@@ -176,6 +166,16 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(361, 180);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 3;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -206,7 +206,7 @@
             this.btnSearch.Location = new System.Drawing.Point(163, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 19;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -216,7 +216,7 @@
             this.txtSearch.Location = new System.Drawing.Point(57, 36);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 18;
+            this.txtSearch.TabIndex = 1;
             // 
             // label6
             // 

@@ -29,6 +29,8 @@ namespace DVDRentalsSystem
 
         private void frmCustomerUpdate_Load(object sender, EventArgs e)
         {
+            //loading the combo boxes
+
             cboCounty.ValueMember = "County";
             cboCounty.DataSource = Customers.getCountyList().Tables["ss"];
 
@@ -56,6 +58,7 @@ namespace DVDRentalsSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //populates the datagrid with the customers from the search
             grdCustomers.DataSource = Customers.getCustomers(txtSearch.Text).Tables["ss"];
         }
 
@@ -82,12 +85,15 @@ namespace DVDRentalsSystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            
             Customers customer = new Customers();
 
             DateTime dateOfBirth = dtpDOB.Value;
             today = DateTime.Now;
 
             int age = today.Year - dateOfBirth.Year;
+
+            //validation
 
             if (txtCustomerId.Text == "0000")
             {
@@ -141,7 +147,7 @@ namespace DVDRentalsSystem
                 MessageBox.Show("Phone no. field is empty\n\nPlease enter a Phone Number", "Validation",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                txtAddress1.Focus();
+                txtPhone.Focus();
             }
             else if (!Validation.allDigits(txtPhone.Text))
             {
@@ -162,7 +168,7 @@ namespace DVDRentalsSystem
                 MessageBox.Show("Addreess2 field contains digits\n\nPlease enter an Address2 without digits", "Validation",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                txtAddress1.Focus();
+                txtAddress2.Focus();
             }
             else if (Validation.textIsEmpty(txtTown.Text))
             {
@@ -194,6 +200,8 @@ namespace DVDRentalsSystem
                 customer.setCountyId((cboCounty.SelectedIndex) + 1);
                 customer.setDob(String.Format("{0:dd-MMM-yy}", dtpDOB.Value));
 
+
+                //checks if the email is already in the system
                 try
                 {
                     customer.updateCustomer(Convert.ToInt32(txtCustomerId.Text));

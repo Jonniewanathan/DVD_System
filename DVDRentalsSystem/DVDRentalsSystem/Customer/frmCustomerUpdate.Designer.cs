@@ -80,7 +80,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(80, 526);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 46;
+            this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -91,7 +91,7 @@
             this.cboTitle.Location = new System.Drawing.Point(80, 368);
             this.cboTitle.Name = "cboTitle";
             this.cboTitle.Size = new System.Drawing.Size(42, 21);
-            this.cboTitle.TabIndex = 45;
+            this.cboTitle.TabIndex = 3;
             // 
             // label13
             // 
@@ -117,7 +117,7 @@
             this.txtPhone.MaxLength = 14;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 20);
-            this.txtPhone.TabIndex = 42;
+            this.txtPhone.TabIndex = 8;
             // 
             // label10
             // 
@@ -134,7 +134,7 @@
             this.txtEmail.MaxLength = 40;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 20);
-            this.txtEmail.TabIndex = 40;
+            this.txtEmail.TabIndex = 7;
             // 
             // grpAddress
             // 
@@ -171,7 +171,7 @@
             this.cboCountry.Location = new System.Drawing.Point(105, 140);
             this.cboCountry.Name = "cboCountry";
             this.cboCountry.Size = new System.Drawing.Size(200, 21);
-            this.cboCountry.TabIndex = 24;
+            this.cboCountry.TabIndex = 13;
             // 
             // label8
             // 
@@ -188,7 +188,7 @@
             this.cboCounty.Location = new System.Drawing.Point(105, 112);
             this.cboCounty.Name = "cboCounty";
             this.cboCounty.Size = new System.Drawing.Size(200, 21);
-            this.cboCounty.TabIndex = 22;
+            this.cboCounty.TabIndex = 12;
             // 
             // txtTown
             // 
@@ -196,7 +196,7 @@
             this.txtTown.MaxLength = 40;
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(200, 20);
-            this.txtTown.TabIndex = 21;
+            this.txtTown.TabIndex = 11;
             // 
             // label7
             // 
@@ -213,7 +213,7 @@
             this.txtAddress1.MaxLength = 40;
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(200, 20);
-            this.txtAddress1.TabIndex = 15;
+            this.txtAddress1.TabIndex = 9;
             // 
             // txtAddress2
             // 
@@ -221,7 +221,7 @@
             this.txtAddress2.MaxLength = 40;
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(200, 20);
-            this.txtAddress2.TabIndex = 19;
+            this.txtAddress2.TabIndex = 10;
             // 
             // label4
             // 
@@ -298,7 +298,7 @@
             this.txtSurname.MaxLength = 25;
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(200, 20);
-            this.txtSurname.TabIndex = 35;
+            this.txtSurname.TabIndex = 4;
             // 
             // label5
             // 
@@ -314,7 +314,7 @@
             this.dtpDOB.Location = new System.Drawing.Point(80, 447);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(200, 20);
-            this.dtpDOB.TabIndex = 37;
+            this.dtpDOB.TabIndex = 6;
             // 
             // txtForename
             // 
@@ -322,7 +322,7 @@
             this.txtForename.MaxLength = 20;
             this.txtForename.Name = "txtForename";
             this.txtForename.Size = new System.Drawing.Size(200, 20);
-            this.txtForename.TabIndex = 36;
+            this.txtForename.TabIndex = 5;
             // 
             // grdCustomers
             // 
@@ -347,14 +347,14 @@
             this.txtSearch.Location = new System.Drawing.Point(80, 38);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(200, 20);
-            this.txtSearch.TabIndex = 51;
+            this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(298, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 52;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);

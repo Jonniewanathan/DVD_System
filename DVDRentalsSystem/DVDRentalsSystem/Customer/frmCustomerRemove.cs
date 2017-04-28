@@ -36,11 +36,13 @@ namespace DVDRentalsSystem
             menu.Show();
         }
 
+        //populates the grid view with the customer records
         private void btnSearch_Click(object sender, EventArgs e)
         {
             grdCustomers.DataSource = Customers.getCustomers(txtSearch.Text).Tables["ss"];
         }
 
+        //populates the form with the data from the row selected on the datagrid
         private void grdCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.grdCustomers.Rows[e.RowIndex];
@@ -61,6 +63,7 @@ namespace DVDRentalsSystem
             cboCountry.Text = row.Cells[11].Value.ToString();
         }
 
+        //calls the methos to remove the specified customer
         private void btnRemove_Click(object sender, EventArgs e)
         {
             Customers customer = new Customers();
@@ -70,11 +73,6 @@ namespace DVDRentalsSystem
 
             customer.removeCustomer(Convert.ToInt16(txtCustomerId.Text));
        
-        }
-
-        private void frmCustomerRemove_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

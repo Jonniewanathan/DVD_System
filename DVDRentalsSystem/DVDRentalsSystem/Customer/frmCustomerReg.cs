@@ -28,6 +28,8 @@ namespace DVDRentalsSystem
 
         private void frmCustomerReg_Load(object sender, EventArgs e)
         {
+
+            //This code populates the combo boxes
             cboCounty.ValueMember = "County";
             cboCounty.DataSource = Customers.getCountyList().Tables["ss"];
 
@@ -37,9 +39,8 @@ namespace DVDRentalsSystem
             cboTitle.ValueMember = "Title";
             cboTitle.DataSource = Customers.getTitlesList().Tables["ss"];
 
-            cboCountry.SelectedIndex = 85;
-
-            txtCustomerId.Text = Customers.nextCustNo().ToString("0000");
+            //Clears all data back to start
+            clearData();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace DVDRentalsSystem
 
             int age = today.Year - dateOfBirth.Year;
             
-
+            //Validation
             if(Validation.hasDigits(txtSurname.Text))
             {
                 MessageBox.Show("Surname has Digits in it\n\nPlease Re-enter", "Validation",
@@ -158,7 +159,7 @@ namespace DVDRentalsSystem
                     MessageBox.Show(txtForename.Text + " " + txtSurname.Text + " has been registered to the system", "Registered",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
-                }
+                }//when caught means the email entered is already entered
                 catch(OracleException f)
                 {
                     MessageBox.Show(f.ToString(), "Validation",
@@ -183,6 +184,7 @@ namespace DVDRentalsSystem
             menu.Show();
         }
 
+        //This method resets all the form at the end
         private void clearData()
         {
             txtCustomerId.Text = Customers.nextCustNo().ToString("0000");

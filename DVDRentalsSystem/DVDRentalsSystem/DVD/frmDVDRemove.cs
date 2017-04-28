@@ -37,7 +37,8 @@ namespace DVDRentalsSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            
+            //brings back the data from the database to populate the form
             DataTable dt = DVDs.getDVD(Convert.ToInt16(txtSearch.Text)).Tables["ss"];
 
             try
@@ -61,6 +62,8 @@ namespace DVDRentalsSystem
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            //Updates the status of the selected DVD to 'R'
+
             DVDs DVD = new DVDs();
             DVD.removeDVD(Convert.ToInt16(txtSearch.Text));
 
@@ -69,6 +72,8 @@ namespace DVDRentalsSystem
 
             clearData();
         }
+
+        //sets from back to defualt
         public void clearData()
         {
             txtSearch.Text = "";
@@ -81,6 +86,7 @@ namespace DVDRentalsSystem
 
         private void frmDVDRemove_Load(object sender, EventArgs e)
         {
+            //poulates the combo boxes
             cboGenre.ValueMember = "Genre";
             cboGenre.DataSource = DVDs.getGenreList().Tables["ss"];
 
@@ -90,6 +96,7 @@ namespace DVDRentalsSystem
             cboPriceCatagory.ValueMember = "Description";
             cboPriceCatagory.DataSource = DVDs.getPriceCatagorys().Tables["ss"];
 
+            //resets form elements back to default
             clearData();
         }
     }

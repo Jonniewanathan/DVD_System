@@ -37,11 +37,13 @@ namespace DVDRentalsSystem
             menu.Show();
         }
 
+        //populates the gridview with the data of the specified customer
         private void btnSearch_Click(object sender, EventArgs e)
         {
             grdCustomers.DataSource = Customers.getCustomers(txtSearch.Text).Tables["ss"];
         }
 
+        //populates the form with the data of the row selected from the datagrid
         private void grdCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.grdCustomers.Rows[e.RowIndex];
@@ -61,8 +63,10 @@ namespace DVDRentalsSystem
             cboCounty.Text = row.Cells[10].Value.ToString().Trim();
             cboCountry.Text = row.Cells[11].Value.ToString().Trim();
 
+            //populates the a datgrid with the customers rentals
             grdCustomerInfo.DataSource = Customers.getCustomerRentals(customerId).Tables["ss"];
 
+            //creates a string with all the data from the form
             string details = "Title: " + cboTitle.Text +
                              "\nSurname: " + txtSurname.Text +
                              "\nForename: " + txtForename.Text +
@@ -75,6 +79,7 @@ namespace DVDRentalsSystem
                              "\nCounty: " + cboCounty.Text +
                              "\nCountry: " + cboCountry.Text;
 
+            //Instantiating an object to print the grid view and the customer details
             print = new ClsPrint(grdCustomerInfo,"Customer Rentals",details);
         }
 
@@ -86,11 +91,6 @@ namespace DVDRentalsSystem
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
             print.printPreview();
-        }
-
-        private void frmCustomerRentals_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
