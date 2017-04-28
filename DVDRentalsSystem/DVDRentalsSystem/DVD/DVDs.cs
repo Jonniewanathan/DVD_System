@@ -12,6 +12,7 @@ namespace DVDRentalsSystem
 {
     class DVDs
     {
+        //Class Attributes
         private int dvdId;
         private string title;
         private string ageRating;
@@ -22,11 +23,13 @@ namespace DVDRentalsSystem
         private int genreId;
         private int priceCatagoryId;
 
+        //Empty constructor
         public DVDs()
         {
 
         }
 
+        //code to recieve all the dvd records from the database
         public static DataSet getDVDs()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -52,6 +55,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //code to recieve all records with the specified title from the database
         public static DataSet getDVDs(string title)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -77,6 +81,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //get all details of a dvd with the speciied DVDid from the database
         public static DataSet getDVD(int DVDid)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -102,6 +107,8 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+
+        //get all dvds with the specified order by and filter by clauses
         public static DataSet getDVDs(string orderBy, string filterBy)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -127,6 +134,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //brings back the next DVDId to be used
         public static int nextDVDNo()
         {
             //Variable to hold value to be returned
@@ -136,7 +144,7 @@ namespace DVDRentalsSystem
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
-            //Define SQL query to get MAX stock_no used
+            //Define SQL query to get MAX DVDid used
             string strSQL = "SELECT MAX(DVDId) FROM DVDs";
 
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
@@ -145,7 +153,7 @@ namespace DVDRentalsSystem
             OracleDataReader dr = cmd.ExecuteReader();
 
             //Read the first (only) value returned by query
-            //If first stockNo, assign value 1, otherwise add 1 to MAX value
+            //If first DVDId, assign value 1, otherwise add 1 to MAX value
             dr.Read();
 
             if (dr.IsDBNull(0))
@@ -158,10 +166,12 @@ namespace DVDRentalsSystem
             //Close the Db connection
             myConn.Close();
 
-            //Return next StockNo
+            //Return next DVDId
             return intNextStockNo;
         }
 
+
+        //Code registers a DVD to the database
         public void regDVD()
         {
             //Connect to db
@@ -182,6 +192,7 @@ namespace DVDRentalsSystem
 			//https://www.codeproject.com/tips/483763/equivalent-function-of-mysql-real-escape-string-in
         }
 
+        //Code to update a DVD in the system
         public void updateDVD()
         {
             //Connect to db
@@ -206,6 +217,7 @@ namespace DVDRentalsSystem
             myConn.Close();
         }
 
+        //Code to update the status of the specified DVD to 'R'
         public void removeDVD(int DVDId)
         {
             //Connect to db
@@ -230,6 +242,8 @@ namespace DVDRentalsSystem
             myConn.Close();
         }
 
+
+        //Returns a list Genres from the database
         public static DataSet getGenreList()
         {
 
@@ -257,6 +271,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //Returns the Age rating list from the database
         public static DataSet getAgeRatingList()
         {
             
@@ -284,6 +299,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //return an analysis in the date range specified
         public static DataSet getDVDAnalysis(string dateFrom, string dateTo)
         {
 
@@ -314,6 +330,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //returns a list of priceCatagories
         public static DataSet getPriceCatagorys()
         {
 
@@ -341,6 +358,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //Standard Getters and Setters
         public int getDvdId()
         {
             return dvdId;

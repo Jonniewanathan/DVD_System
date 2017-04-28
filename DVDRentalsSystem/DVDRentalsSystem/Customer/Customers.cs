@@ -12,6 +12,7 @@ namespace DVDRentalsSystem
 {
     class Customers
     {
+        //Class Attributes
         private int customerId;
         private string title;
         private string surname;
@@ -29,11 +30,15 @@ namespace DVDRentalsSystem
         private int countryId;
         private int titleId;
 
+
+        //Empty Constructor
         public Customers()
         {
             
         }
 
+
+        //Code brings back the max customerId and adding 1 to give the next customerId
         public static int nextCustNo()
         {
             //Variable to hold value to be returned
@@ -43,7 +48,7 @@ namespace DVDRentalsSystem
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
-            //Define SQL query to get MAX stock_no used
+            //Define SQL query to get MAX customerId used
             string strSQL = "SELECT MAX(customerId) FROM Customer";
 
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
@@ -52,7 +57,7 @@ namespace DVDRentalsSystem
             OracleDataReader dr = cmd.ExecuteReader();
 
             //Read the first (only) value returned by query
-            //If first stockNo, assign value 1, otherwise add 1 to MAX value
+            //If first customerId, assign value 1, otherwise add 1 to MAX value
             dr.Read();
 
             if (dr.IsDBNull(0))
@@ -65,7 +70,7 @@ namespace DVDRentalsSystem
             //Close the Db connection
             myConn.Close();
 
-            //Return next StockNo
+            //Return next next customerId
             return intNextCustNo;
         }
 
@@ -90,20 +95,21 @@ namespace DVDRentalsSystem
             //https://www.codeproject.com/tips/483763/equivalent-function-of-mysql-real-escape-string-in
         }
 
+
+        //Code to update a specified customer in the database
         public void updateCustomer(int customerId)
         {
             //Connect to db
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
-            //Define SQL Query to update DVD record
+            //Define SQL Query to update customer record
 
             string strSQL = "UPDATE Customer SET TitleId = " + getTitleId() + ",Forename = '" + getForename() + "', Surname = '" + getSurname() + "', DOB =  '" + getDob() + "', Address1 =  '" + getAddress1() + "', Address2 =  '" + getAddress2() + "', Town = '" + getTown() + "', CountyId = " + getCountyId() + ", CountryId =  " + getCountryId() + ", Email = '" + getEmail() + "', Phone = '" + getPhoneNo() + "' WHERE CustomerId = "+ customerId + "";
 
             //Execute the Command
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
 
-            
             try
             {
                 cmd.ExecuteNonQuery();
@@ -112,17 +118,20 @@ namespace DVDRentalsSystem
             {
                 MessageBox.Show(e.StackTrace);
             }
+
             //Close Connection
             myConn.Close();
         }
 
+
+        //Code to update specified customer status to 'R'
         public void removeCustomer(int customerId)
         {
             //Connect to db
             OracleConnection myConn = new OracleConnection(DBConnect.oradb);
             myConn.Open();
 
-            //Define SQL Query to update DVD record
+            //Define SQL Query to update customer status to 'R'
 
             string strSQL = "UPDATE Customer set Status = 'R' WHERE CustomerId = " + customerId + "";
 
@@ -142,6 +151,8 @@ namespace DVDRentalsSystem
             myConn.Close();
         }
 
+
+        //Code to bring back all customer details from the database
         public static DataSet getCustomers()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -167,6 +178,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //code to bring back all the specified customers rentals
         public static DataSet getCustomerRentals(int CustomerId)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -199,6 +211,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //code to brin back the customer details from customers with matching surnames
         public static DataSet getCustomers(string surname)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -223,7 +236,8 @@ namespace DVDRentalsSystem
 
             return ds;
         }
-
+        
+        //code to bring back the list of counties from the database
         public static DataSet getCountyList()
         {
 
@@ -251,6 +265,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //code to bring back the a list of titles from the database
         public static DataSet getTitlesList()
         {
 
@@ -278,6 +293,7 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+        //code to bring back the list of countries from the database
         public static DataSet getCountryList()
         {
 
@@ -305,6 +321,8 @@ namespace DVDRentalsSystem
             return ds;
         }
 
+
+        //general getters and setters
         public int getCustomerId()
         {
             return customerId;

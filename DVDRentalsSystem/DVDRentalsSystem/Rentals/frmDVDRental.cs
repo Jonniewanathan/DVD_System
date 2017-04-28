@@ -253,7 +253,9 @@ namespace DVDRentalsSystem
             {
                 dvdArrayList.RemoveAt(grdDVDBasket.SelectedRows[0].Index);
                 prices.RemoveAt(grdDVDBasket.SelectedRows[0].Index);
-                grdDVDBasket.Rows.RemoveAt(grdDVDBasket.SelectedRows[0].Index);            
+                grdDVDBasket.Rows.RemoveAt(grdDVDBasket.SelectedRows[0].Index);
+                int numOfDays = Convert.ToInt16(cboNumOfDays.Text);
+                txtTotalPrice.Text = (totalPriceCalc(prices) * numOfDays).ToString("00.00");
             }
             else
             {

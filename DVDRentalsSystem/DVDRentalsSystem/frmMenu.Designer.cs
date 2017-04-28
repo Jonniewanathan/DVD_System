@@ -197,7 +197,6 @@
             this.MainMenuStrip = this.mnuStrip;
             this.Name = "frmMenu";
             this.Text = "DVD Rental  Sysem";
-            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);

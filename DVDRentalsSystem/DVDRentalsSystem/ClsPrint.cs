@@ -9,6 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*****************************************************
+*    Title: How to print values from a Datagrid view
+*    Author: KF2
+*    Site owner/sponsor: stackoverflow.com
+*    Date: 28/4/2017
+*    Code version: edited Nov 18 '15 at 10:44
+*    Availability: http://stackoverflow.com/questions/15853746/how-to-print-values-from-a-datagridview-control (Accessed 28 April 2017)
+*    Modified:  Added code to take in the Details of a customer to 
+*               display at the top left on the first page
+*****************************************************/
+
+
+
 namespace DVDRentalsSystem
 {
     class ClsPrint

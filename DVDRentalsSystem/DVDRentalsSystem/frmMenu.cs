@@ -17,7 +17,7 @@ namespace DVDRentalsSystem
         {
             InitializeComponent();
         }
-
+        //Methods for menu strip buttons to open the from specified
         private void mnuDVDReg_Click(object sender, EventArgs e)
         {
             frmDVDReg DVDReg = new frmDVDReg(this);
@@ -51,11 +51,6 @@ namespace DVDRentalsSystem
             frmCustomerReg CustomerReg = new frmCustomerReg(this);
             CustomerReg.Show();
             this.Hide();
-        }
-
-        private void frmMenu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void mnuCustomerUpdate_Click(object sender, EventArgs e)
